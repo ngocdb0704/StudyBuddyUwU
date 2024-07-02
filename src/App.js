@@ -30,7 +30,7 @@ const App = () => {
                     <DepartmentList />
                   </Col>
                   <Col md={8}>
-                    <h2>Employees</h2>
+                    <h2>Emp</h2>
                     <Search />
                     <EmployeeList />
                   </Col>
