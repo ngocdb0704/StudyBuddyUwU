@@ -1,0 +1,106 @@
+{
+  "departments": [
+    {
+      "id": 1,
+      "name": "Integrated System"
+    },
+    {
+      "id": 2,
+      "name": "Software"
+    },
+    {
+      "id": 3,
+      "name": "Information Assurance"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Tran Bao Han",
+      "dob": "1980-09-12",
+      "gender": "Male",
+      "position": "Developer",
+      "department": 2
+    },
+    {
+      "id": 2,
+      "name": "Quach Phu Thanh",
+      "dob": "1987-01-19",
+      "gender": "Female",
+      "position": "Developer",
+      "department": 1
+    },
+    {
+      "id": 3,
+      "name": "Chu Thanh Quang",
+      "dob": "1984-05-23",
+      "gender": "Female",
+      "position": "Leader",
+      "department": 1
+    },
+    {
+      "id": 4,
+      "name": "Trinh Tien Dung",
+      "dob": "1990-06-14",
+      "gender": "Male",
+      "position": "Developer",
+      "department": 2
+    },
+    {
+      "id": 5,
+      "name": "Phan Thu Thao",
+      "dob": "1990-03-12",
+      "gender": "Fe male",
+      "position": "Tester",
+      "department": 1
+    },
+    {
+      "id": 6,
+      "name": "Nguyen Xuan Quang",
+      "dob": "1987-01-19",
+      "gender": "Male",
+      "position": "Leader",
+      "department": 2
+    },
+    {
+      "id": 7,
+      "name": "Trinh Thu Hang",
+      "dob": "2000-05-12",
+      "gender": "Fe male",
+      "position": "Developer",
+      "department": 3
+    },
+    {
+      "id": 8,
+      "name": "Tran Hong Quan",
+      "dob": "1998-04-16",
+      "gender": "Male",
+      "position": "Leader",
+      "department": 3
+    },
+    {
+      "id": 9,
+      "name": "Pham The Tung",
+      "dob": "1984-09-12",
+      "gender": "Male",
+      "position": "Manager",
+      "department": 1
+    },
+    {
+      "id": 10,
+      "name": "Tran Manh Chien",
+      "dob": "1983-10-21",
+      "gender": "Male",
+      "position": "Manager",
+      "department": 2
+    },
+    {
+      "name": "Nguyen Hoan",
+      "dob": "2024-06-23",
+      "gender": "Male",
+      "position": "Manger",
+      "department": 1,
+      "id": 11
+    }
+  ]
+}
