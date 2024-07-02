@@ -1,0 +1,13 @@
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+#By: QuanNM, For: files that only serve the build on my local machine (which uses mysql intsead of mssql)
+**/__local__*
+
+node_modules/
