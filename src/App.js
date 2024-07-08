@@ -15,38 +15,50 @@ import DepartmentList_Radio from './others/DepartmentList_Radio';
 import Navbar_Button from './others/Navbar_Button';
 import AddEmployeeToTeam from './components/AddEmployeeToTeam';
 import DisplayTeam from './components/DisplayTeam';
+import UserProfileProvider, { UserProfileContext } from './context/UserProfileContext';
+import UserProfilePopup from './components/UserProfile';
+import ProfilePictureProvider from './context/ProfilePictureContext';
+
 const App = () => {
-  return (
-    <EmployeeProvider>
-      <Router>
-        <AppNavbar />
-        <Container className="mt-4">
-          <Routes>
-            <Route path="/" element=
-              {
-                <Row>
-                  <Col md={4}>
-                    <h2>Departments</h2>
-                    <DepartmentList />
-                  </Col>
-                  <Col md={8}>
-                    <h2>Emp</h2>
-                    <Search />
-                    <EmployeeList />
-                  </Col>
-                </Row>
-              }
-            />
-            <Route path="/add" element={<AddEmployeeForm />} />
-            <Route path="/employee/:id" element={<EmployeeDetail />} />
-            <Route path="/edit/:id" element={<EditEmployeeForm />} />
-            <Route path="/add-to-team" element={<AddEmployeeToTeam />} />
-            <Route path="/display-team" element={<DisplayTeam />} />
-          </Routes>
-        </Container>
-      </Router>
-    </EmployeeProvider>
-  );
+	{/*
+			<EmployeeProvider>
+			<Router>
+			<AppNavbar />
+			<Container className="mt-4">
+			<Routes>
+			<Route path="/" element=
+			{
+				<Row>
+				<Col md={4}>
+				<h2>Departments</h2>
+				<DepartmentList />
+				</Col>
+				<Col md={8}>
+				<h2>Emp</h2>
+				<Search />
+				<EmployeeList />
+				</Col>
+				</Row>
+			}
+			/>
+			<Route path="/add" element={<AddEmployeeForm />} />
+			<Route path="/employee/:id" element={<EmployeeDetail />} />
+			<Route path="/edit/:id" element={<EditEmployeeForm />} />
+			<Route path="/add-to-team" element={<AddEmployeeToTeam />} />
+			<Route path="/display-team" element={<DisplayTeam />} />
+			</Routes>
+			</Container>
+			</Router>
+			</EmployeeProvider>
+			*/}
+	return (
+		<UserProfileProvider>
+			<ProfilePictureProvider>
+				<HomePage/>
+				<UserProfilePopup/>
+			</ProfilePictureProvider>
+		</UserProfileProvider>
+	);
 };
 
 export default App;

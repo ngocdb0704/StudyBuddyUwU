@@ -1,21 +1,30 @@
-import React from 'react'
-import {Row, Col} from 'react-bootstrap'
+import React, { useContext, useEffect } from 'react';
+import {Row, Col, Button} from 'react-bootstrap'
 import DepartmentList from '../components/DepartmentList'
 import EmployeeList from '../components/EmployeeList'
 import Search from '../components/Search'
+import { UserProfileContext } from '../context/UserProfileContext';
+
 function HomePage() {
+	const { userProfile, setUserProfile } = useContext(UserProfileContext);
+
+	function temp() {
+		setUserProfile({
+			"UserId": 0,
+			"Email": "",
+			"Password": "",
+			"RoleId": 0,
+			"FullName": "Guest",
+			"GenderId": 1,
+			"Mobile": "",
+			"IsActive": false
+		})
+	}
+
     return (
-        <Row>
-            <Col md={4}>
-                <h2>Departments</h2>
-                <DepartmentList />
-            </Col>
-            <Col md={8}>
-                <h2>Employees</h2>
-                <Search />
-                <EmployeeList />
-            </Col>
-        </Row>
+		<>
+			<Button onClick={temp}>Do the thing</Button>
+		</>
     )
 }
 
