@@ -1,7 +1,7 @@
 import React from 'react'
 import {Row, Col} from 'react-bootstrap'
 import DepartmentList from '../components/DepartmentList'
-import EmployeeList from '../components/EmployeeList'
+import EmployeeList from '../components/SubjectList'
 import Search from '../components/Search'
 function HomePage() {
     return (
