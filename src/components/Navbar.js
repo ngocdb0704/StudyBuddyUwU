@@ -1,9 +1,18 @@
 // src/components/Navbar.js
-import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 
 const AppNavbar = () => {
+  const { user, logout } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
     <Navbar bg="primary" variant="dark" expand="lg">
       <Container>
@@ -19,14 +28,19 @@ const AppNavbar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-1">
-            <Nav.Link as={Link} to="/add">Add Employee</Nav.Link>
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/add-to-cart">Add To Cart</Nav.Link>
+            <Nav.Link as={Link} to="/display-cart">Display Cart</Nav.Link>
           </Nav>
-          <Nav className="me-1">
-            <Nav.Link as={Link} to="/add-to-team">Add To Team</Nav.Link>
-          </Nav>
-          <Nav className="me-1">
-            <Nav.Link as={Link} to="/display-team">Display Team</Nav.Link>
+          <Nav>
+            {user ? (
+              <>
+                <Nav.Link>Hello, {user.FullName}</Nav.Link>
+                <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
+              </>
+            ) : (
+              <Button variant="outline-light" as={Link} to="/login">Login</Button>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
