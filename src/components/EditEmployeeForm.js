@@ -2,7 +2,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
-import { EmployeeContext } from '../context/EmployeeContext';
+import { EmployeeContext } from '../context/SubjectContext';
 import axios from 'axios';
 
 const EditEmployeeForm = () => {

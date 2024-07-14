@@ -1,64 +1,66 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
+import AppNavbar from "./components/Navbar";
+import SubjectProvider from "./context/SubjectContext";
+import SubjectList from "./components/SubjectList";
+import CategoryList from "./components/CaregoryList";
+import Search from "./components/Search";
+// import AddSubjectForm from './components/AddSubjectForm'; // Assume you have this component
+// import SubjectDetail from './components/SubjectDetail'; // Assume you have this component
+// import EditSubjectForm from './components/EditSubjectForm'; // Assume you have this component
+import LoginPage from "./components/LoginPage";
+import UserProvider from "./context/UserContext";
+import SubjectDetail from "./components/SubjectDetail";
+import SubjectLevelFilter from "./components/SubjectLevelFilter";
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
-import EmployeeProvider from './context/EmployeeContext';
-import DepartmentList from './components/DepartmentList';
-import EmployeeList from './components/EmployeeList';
-import AddEmployeeForm from './components/AddEmployeeForm';
-import Search from './components/Search';
-import AppNavbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import EmployeeDetail from './components/EmployeeDetail';
-import EditEmployeeForm from './components/EditEmployeeForm';
-import DepartmentList_Radio from './others/DepartmentList_Radio';
-import Navbar_Button from './others/Navbar_Button';
-import AddEmployeeToTeam from './components/AddEmployeeToTeam';
-import DisplayTeam from './components/DisplayTeam';
-import UserProfileProvider, { UserProfileContext } from './context/UserProfileContext';
-import UserProfilePopup from './components/UserProfile';
-import ProfilePictureProvider from './context/ProfilePictureContext';
+const Home = () => (
+  <Container className="mt-4">
+    <Row>
+      <Col md={3}>
+        <h2>Categories</h2>
+        <CategoryList />
+      </Col>
+      <Col md={9}>
+        <h2>Subjects</h2>
+        <Row>
+          <Col md={8}>
+            <Search />
+          </Col>
+          <Col md={4}>
+            <SubjectLevelFilter />
+          </Col>
+        </Row>
+        <SubjectList />
+      </Col>
+    </Row>
+  </Container>
+);
 
 const App = () => {
-	{/*
-			<EmployeeProvider>
-			<Router>
-			<AppNavbar />
-			<Container className="mt-4">
-			<Routes>
-			<Route path="/" element=
-			{
-				<Row>
-				<Col md={4}>
-				<h2>Departments</h2>
-				<DepartmentList />
-				</Col>
-				<Col md={8}>
-				<h2>Emp</h2>
-				<Search />
-				<EmployeeList />
-				</Col>
-				</Row>
-			}
-			/>
-			<Route path="/add" element={<AddEmployeeForm />} />
-			<Route path="/employee/:id" element={<EmployeeDetail />} />
-			<Route path="/edit/:id" element={<EditEmployeeForm />} />
-			<Route path="/add-to-team" element={<AddEmployeeToTeam />} />
-			<Route path="/display-team" element={<DisplayTeam />} />
-			</Routes>
-			</Container>
-			</Router>
-			</EmployeeProvider>
-			*/}
-	return (
-		<UserProfileProvider>
-			<ProfilePictureProvider>
-				<HomePage/>
-				<UserProfilePopup/>
-			</ProfilePictureProvider>
-		</UserProfileProvider>
-	);
+  return (
+    <UserProvider>
+      <SubjectProvider>
+        <Router>
+          <AppNavbar />
+          <Container className="mt-4">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Home/>
+                }
+              />
+              {/* <Route path="/add" element={<AddSubjectForm />} />
+              <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
+              <Route path="/Subject/:id" element={<SubjectDetail />} />
+              <Route path="/login" element={<LoginPage />} />
+            </Routes>
+          </Container>
+        </Router>
+      </SubjectProvider>
+    </UserProvider>
+  );
 };
 
 export default App;

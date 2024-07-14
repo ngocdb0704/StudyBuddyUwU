@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import {Row, Col, Button} from 'react-bootstrap'
 import DepartmentList from '../components/DepartmentList'
-import EmployeeList from '../components/EmployeeList'
+import EmployeeList from '../components/SubjectList'
 import Search from '../components/Search'
 import { UserProfileContext } from '../context/UserProfileContext';
 
