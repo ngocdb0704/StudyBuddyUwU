@@ -286,6 +286,10 @@
     }
   ],
   "ProfilePicture": [
+	  {
+		  "id": 1,
+		  "data": "https://codeforces.org/s/73792/images/codeforces-sponsored-by-ton.png"
+	  }
   ],
   "ResetToken": [
   ],

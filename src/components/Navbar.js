@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
+import UserProfilePopup from './UserProfile';
 
 const AppNavbar = () => {
   const { user, logout } = useContext(UserContext);
@@ -35,7 +36,7 @@ const AppNavbar = () => {
           <Nav>
             {user ? (
               <>
-                <Nav.Link>Hello, {user.FullName}</Nav.Link>
+				<UserProfilePopup text={"Hello," + user.FullName}/>
                 <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
               </>
             ) : (

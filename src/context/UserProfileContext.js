@@ -1,3 +1,4 @@
+// Does not currently have an use
 // src/context/UserProfileContext.js
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
@@ -5,7 +6,7 @@ import axios from 'axios';
 export const UserProfileContext = createContext();
 
 const UserProfileProvider = ({ children }) => {
-  const [userProfile, setUserProfile] = useState({
+  const [displayProfile, setDisplayProfile] = useState({
       "UserId": 0,
       "Email": "",
       "Password": "",
