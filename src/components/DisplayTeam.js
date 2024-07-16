@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Table, Button, Form, Container, Row, Col } from 'react-bootstrap';
-import { EmployeeContext } from '../context/EmployeeContext';
+import { EmployeeContext } from '../context/SubjectContext';
 
 const DisplayTeam = () => {
   const { team, increaseQuantity, decreaseQuantity, removeEmployeeFromTeam, updateQuantity } = useContext(EmployeeContext);
