@@ -29,6 +29,7 @@ const AppNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+          <Nav.Link as={Link} to="/subjectsList">Subjects List</Nav.Link>
             <Nav.Link as={Link} to="/add-to-cart">Add To Cart</Nav.Link>
             <Nav.Link as={Link} to="/display-cart">Display Cart</Nav.Link>
           </Nav>
