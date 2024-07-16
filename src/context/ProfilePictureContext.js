@@ -1,3 +1,4 @@
+// Currently unused
 // src/context/UserProfileContext.js
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
@@ -14,7 +15,7 @@ const ProfilePictureProvider = ({ children }) => {
 			setDisplayedUserPic(res.data.id)
 		})
 		.catch((err) => {
-			setDisplayedUserPic('./public/images/A.png');
+			setDisplayedUserPic('./images/anonymous-user.webp');
 			console.log(displayedUserPic);
 		});
 	}, [displayedUserId])
