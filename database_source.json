@@ -291,6 +291,36 @@
   ],
   "SubjectCategory": [
     {
+      "SubjectCategoryId": 1,
+      "SubjectCategoryName": "Natural Science",
+      "SubjectParentCategory": 0
+    },
+    {
+      "SubjectCategoryId": 2,
+      "SubjectCategoryName": "Social Science",
+      "SubjectParentCategory": 0
+    },
+    {
+      "SubjectCategoryId": 3,
+      "SubjectCategoryName": "Technology & IT",
+      "SubjectParentCategory": 0
+    },
+    {
+      "SubjectCategoryId": 4,
+      "SubjectCategoryName": "Mathematics",
+      "SubjectParentCategory": 1
+    },
+    {
+      "SubjectCategoryId": 5,
+      "SubjectCategoryName": "Chemistry",
+      "SubjectParentCategory": 1
+    },
+    {
+      "SubjectCategoryId": 6,
+      "SubjectCategoryName": "Physics",
+      "SubjectParentCategory": 1
+    },
+    {
       "SubjectCategoryId": 7,
       "SubjectCategoryName": "Algebra",
       "SubjectParentCategory": 4
@@ -309,6 +339,66 @@
       "SubjectCategoryId": 10,
       "SubjectCategoryName": "Linear Algebra",
       "SubjectParentCategory": 4
+    },
+    {
+      "SubjectCategoryId": 11,
+      "SubjectCategoryName": "Organic Chemistry",
+      "SubjectParentCategory": 5
+    },
+    {
+      "SubjectCategoryId": 12,
+      "SubjectCategoryName": "Inorganic Chemistry",
+      "SubjectParentCategory": 5
+    },
+    {
+      "SubjectCategoryId": 13,
+      "SubjectCategoryName": "Biochemistry",
+      "SubjectParentCategory": 5
+    },
+    {
+      "SubjectCategoryId": 14,
+      "SubjectCategoryName": "Physical Chemistry",
+      "SubjectParentCategory": 5
+    },
+    {
+      "SubjectCategoryId": 15,
+      "SubjectCategoryName": "Quantum Mechanics",
+      "SubjectParentCategory": 6
+    },
+    {
+      "SubjectCategoryId": 16,
+      "SubjectCategoryName": "Electromagnetism",
+      "SubjectParentCategory": 6
+    },
+    {
+      "SubjectCategoryId": 17,
+      "SubjectCategoryName": "Nuclear Physics",
+      "SubjectParentCategory": 6
+    },
+    {
+      "SubjectCategoryId": 18,
+      "SubjectCategoryName": "Optics",
+      "SubjectParentCategory": 6
+    },
+    {
+      "SubjectCategoryId": 19,
+      "SubjectCategoryName": "Programming & Development",
+      "SubjectParentCategory": 3
+    },
+    {
+      "SubjectCategoryId": 20,
+      "SubjectCategoryName": "Data Science & Analytics",
+      "SubjectParentCategory": 3
+    },
+    {
+      "SubjectCategoryId": 21,
+      "SubjectCategoryName": "Cybersecurity",
+      "SubjectParentCategory": 3
+    },
+    {
+      "SubjectCategoryId": 22,
+      "SubjectCategoryName": "Web Design & Development",
+      "SubjectParentCategory": 3
     },
     {
       "SubjectCategoryId": 23,
@@ -349,6 +439,16 @@
       "SubjectCategoryId": 30,
       "SubjectCategoryName": "C#",
       "SubjectParentCategory": 19
+    },
+    {
+      "SubjectCategoryId": 31,
+      "SubjectCategoryName": "History",
+      "SubjectParentCategory": 2
+    },
+    {
+      "SubjectCategoryId": 32,
+      "SubjectCategoryName": "Geography",
+      "SubjectParentCategory": 2
     },
     {
       "SubjectCategoryId": 33,
