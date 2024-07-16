@@ -1,5 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Outlet,
+  Link,
+  Navigate,
+} from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import AppNavbar from "./components/Navbar";
 import SubjectProvider from "./context/SubjectContext";
@@ -37,24 +44,50 @@ const Home = () => (
   </Container>
 );
 
+const Navigation = () => (
+  <div className="nav-bar">
+    <div className="nav-bar-content">
+      <Link to="/" className="nav-link">
+        Home
+      </Link>
+      <Link to="/blog" className="nav-link">
+        Blog
+      </Link>
+      <Link to="/add-attendee" className="nav-link">
+        Add Attendee
+      </Link>
+      <Link to="/add-attendee-to-cart" className="nav-link">
+        Add to Team
+      </Link>
+      <Link to="/display-cart" className="nav-link">
+        Display Team
+      </Link>
+    </div>
+  </div>
+);
+
+const AppLayout = () => (
+  <>
+    <Navigation />
+    <Outlet />
+  </>
+);
+
 const App = () => {
   return (
     <UserProvider>
       <SubjectProvider>
         <Router>
-          <AppNavbar />
           <Container className="mt-4">
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <Home/>
-                }
-              />
-              {/* <Route path="/add" element={<AddSubjectForm />} />
-              <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
-              <Route path="/Subject/:id" element={<SubjectDetail />} />
-              <Route path="/login" element={<LoginPage />} />
+              <Route path="/" element={<AppLayout />}>
+                <Route index element={<Home />} />
+                {/* <Route path="/add" element={<AddSubjectForm />} />
+                <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
+                <Route path="/Subject/:id" element={<SubjectDetail />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/blog" element={<></>} />
+              </Route>
             </Routes>
           </Container>
         </Router>
