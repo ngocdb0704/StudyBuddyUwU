@@ -14,27 +14,10 @@ import UserProvider from "./context/UserContext";
 import SubjectDetail from "./components/SubjectDetail";
 import SubjectLevelFilter from "./components/SubjectLevelFilter";
 import UserProfilePopup from "./components/UserProfile";
+import ContainerSubjectsList from "./components/ContainerSubjectsList";
 
 const Home = () => (
   <Container className="mt-4">
-    <Row>
-      <Col md={3}>
-        <h2>Categories</h2>
-        <CategoryList />
-      </Col>
-      <Col md={9}>
-        <h2>Subjects</h2>
-        <Row>
-          <Col md={8}>
-            <Search />
-          </Col>
-          <Col md={4}>
-            <SubjectLevelFilter />
-          </Col>
-        </Row>
-        <SubjectList />
-      </Col>
-    </Row>
   </Container>
 );
 
@@ -56,6 +39,7 @@ const App = () => {
               <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
               <Route path="/Subject/:id" element={<SubjectDetail />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/subjectsList" element={<ContainerSubjectsList />} />
             </Routes>
           </Container>
         </Router>
