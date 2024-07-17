@@ -13,7 +13,6 @@ import LoginPage from "./components/LoginPage";
 import UserProvider from "./context/UserContext";
 import SubjectDetail from "./components/SubjectDetail";
 import SubjectLevelFilter from "./components/SubjectLevelFilter";
-import UserProfilePopup from "./components/UserProfile";
 
 const Home = () => (
   <Container className="mt-4">

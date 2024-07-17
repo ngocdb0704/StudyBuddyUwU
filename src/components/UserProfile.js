@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import {
   Form,
   Row,
@@ -21,7 +21,6 @@ let checkName = /^.*[^a-z].*$|^$/i;
 function validateName(val) {
   let blocked = false;
   val.split(" ").forEach((it) => {
-    console.log(it);
     if (it.match(checkName)) {
       blocked = true;
     }
@@ -55,19 +54,65 @@ function formReset() {}
 function changeSaveButtonStatus() {}
 
 const UserProfilePopup = ({ text }) => {
-  let [genderMap, setGenderMap] = useState([]);
+  const [displayProfile, setDisplayProfile] = useState({
+    UserId: 0,
+    Email: "",
+    Password: "",
+    RoleId: 0,
+    FullName: "Guest",
+    GenderId: 0,
+    Mobile: "",
+    IsActive: false,
+    id: 0,
+  });
+
+  const { user } = useContext(UserContext);
+  const [refetchFlag, setRefetchFlag] = useState(0);
+  useEffect(() => {
+    if (user) {
+      setDisplayProfile({
+        UserId: user.UserId,
+        Email: user.Email,
+        Password: user.Password,
+        RoleId: user.RoleId,
+        FullName: user.FullName,
+        GenderId: user.GenderId,
+        Mobile: user.Mobile,
+        IsActive: user.IsActive,
+        id: user.id,
+      });
+    }
+  }, [user, refetchFlag]);
+
+  const [genderMap, setGenderMap] = useState([]);
+  const [displayPic, setDisplayPic] = useState({
+    imgId: 0,
+    data: "./images/anonymous-user.webp",
+  });
+  const [hasProfilePic, setPostFlag] = useState(false);
   useEffect(() => {
     axios
       .get("http://localhost:9999/Gender")
       .then((res) => {
-        console.log("here");
-        console.log(res);
         setGenderMap(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+
+    axios
+      .get("http://localhost:9999/ProfilePicture?UserId=" + user.UserId)
+      .then((res) => {
+        if (res.data.length > 0) {
+          setDisplayPic({ imgId: res.data[0].id, data: res.data[0].data });
+        } else {
+          console.log("User does not have a profile pic");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [displayProfile]);
 
   let [uploadFile, setUpload] = useState({
     file: null,
@@ -87,18 +132,18 @@ const UserProfilePopup = ({ text }) => {
       // on reader load somthing...
       reader.onload = () => {
         // Make a fileInfo Object
-        console.log("Called", reader);
         baseURL = reader.result;
         //console.log(baseURL);
-        document.getElementById("img-display").setAttribute("src", baseURL);
+        setDisplayPic({ ...displayPic, data: baseURL });
         resolve(baseURL);
       };
       console.log(fileInfo);
     });
   };
 
+  const hasChangedPic = useRef(false);
   let handleFileInputChange = (e) => {
-    console.log(e.target.files[0]);
+    hasChangedPic.current = true;
     let { file } = uploadFile;
 
     file = e.target.files[0];
@@ -106,7 +151,6 @@ const UserProfilePopup = ({ text }) => {
     getBase64(file)
       .then((result) => {
         file["base64"] = result;
-        console.log("File Is", file);
         setUpload({
           base64URL: result,
           file,
@@ -125,25 +169,6 @@ const UserProfilePopup = ({ text }) => {
     console.log("Ya");
   }
 
-  const { user } = useContext(UserContext);
-  //getProfilePic(user.UserId)
-  //const { profilePicList, setProfilePicList } = useContext(UserProfileContext);
-  //const { displayedUserPic, setDisplayedUserPic, displayedUserId, setDisplayedUserId } = useContext(ProfilePictureContext);
-
-  const [profilePicMap, setProfilePicMap] = useState([]);
-
-  const [displayProfile, setDisplayProfile] = useState({
-    UserId: 0,
-    Email: "",
-    Password: "",
-    RoleId: 0,
-    FullName: "Guest",
-    GenderId: 0,
-    Mobile: "",
-    IsActive: false,
-    id: 0,
-  });
-
   function handleNameChange(val) {
     setDisplayProfile({ ...displayProfile, FullName: val });
   }
@@ -156,79 +181,52 @@ const UserProfilePopup = ({ text }) => {
     setDisplayProfile({ ...displayProfile, GenderId: val });
   }
 
-  async function fetProfilePic(id) {
-    let Out = null;
-    await axios
-      .get("http://localhost:9999/ProfilePicture/" + id)
-      .then((res) => {
-        Out = res.data;
-        console.log("success");
-      })
-      .catch((err) => {
-        console.log("failed");
-      });
-    console.log("returning " + Out);
-    if (Out) return Out;
-    else throw new Error("Profile Picture not found");
-  }
-
-  function getProfilePic(id) {
-    let found = profilePicMap.find((pic) => pic.id == id);
-    if (found) return found;
-    else {
-      fetProfilePic(id)
-        .then(function (value) {
-          console.log("setting " + value.data);
-          setProfilePicMap([...profilePicMap, value]);
-        })
-        .catch(() => {
-          setProfilePicMap([
-            ...profilePicMap,
-            { id: id, data: "./images/anonymous-user.webp" },
-          ]);
-        });
-      return { data: "" };
-    }
-  }
-
-  console.log(getProfilePic(1));
-
-  useEffect(() => {
-    if (user) {
-      setDisplayProfile({
-        UserId: user.UserId,
-        Email: user.Email,
-        Password: user.Password,
-        RoleId: user.RoleId,
-        FullName: user.FullName,
-        GenderId: user.GenderId,
-        Mobile: user.Mobile,
-        IsActive: user.IsActive,
-        id: user.id,
-      });
-    }
-  }, [user]);
-
   function saveUser() {
-    console.log(displayProfile);
     axios
       .put("http://localhost:9999/User/" + displayProfile.id, {
         ...displayProfile,
       })
       .then((res) => {
-        console.log(res);
         alert("Profile saved");
         //setRefetchFlag(refetchFlag + 1);
       })
       .catch((error) => {
-        alert(error);
+        console.log(error);
       });
+
+	  alert(hasChangedPic.current)
+    if (hasChangedPic.current) {
+      if (displayPic.imgId < 1) {
+        axios
+          .post("http://localhost:9999/ProfilePicture/", {
+            UserId: displayProfile.UserId,
+            data: uploadFile.base64URL,
+          })
+          .then((res) => {
+            //setRefetchFlag(refetchFlag + 1);
+          })
+          .catch((error) => {
+            alert(error);
+          });
+      } else {
+        axios
+          .put("http://localhost:9999/ProfilePicture/" + displayPic.imgId, {
+            UserId: user.UserId,
+            data: uploadFile.base64URL,
+          })
+          .then((res) => {
+            //setRefetchFlag(refetchFlag + 1);
+          })
+          .catch((error) => {
+            alert(error);
+          });
+      }
+    }
   }
 
   const [lgShow, setLgShow] = useState(false);
   let validName = validateName(displayProfile.FullName),
     validMobile = validateMobile(displayProfile.Mobile);
-  //console.log(displayProfile.FullName + ": " + validateName(displayProfile.FullName))
   return (
     <>
       <Button onClick={() => setLgShow(true)}>{text}</Button>
@@ -248,17 +246,25 @@ const UserProfilePopup = ({ text }) => {
             <Row className="g-0 w-100 m-0">
               <Col lg={4} className="container">
                 <div
-                  style={{ position: "relative", width: "100%" }}
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "200px",
+                    objectFit: "cover",
+                    overflow: "hidden",
+                  }}
                   className="w-100 border border-dark"
                 >
                   <img
                     id="img-display"
                     style={{
-                      width: "100%",
+                      height: "100%",
+                      position: "absolute",
                       maxHeight: "300px",
-                      objectFit: "cover",
+                      left: "50%",
+                      transform: "translate(-50%, 0)",
                     }}
-                    src={getProfilePic(displayProfile.UserId).data}
+                    src={displayPic.data}
                     alt="Profile picture"
                     onError={handleImgError}
                   />
@@ -322,19 +328,13 @@ const UserProfilePopup = ({ text }) => {
                     <Form.Select
                       name="gender"
                       onChange={(e) => handleGenderChange(e.target.value)}
+                      defaultValue={displayProfile.GenderId}
                     >
                       {genderMap.map((val) => (
-                        <option
-                          selected={displayProfile.GenderId == val.GenderId}
-                          value={val.GenderId}
-                        >
+                        <option key={val.GenderId} value={val.GenderId}>
                           {val.GenderName}
                         </option>
                       ))}
-                      {/*(genderMap.size() > 0)? genderMap.reduce(0, (key, val) -> "<option value=\"" + key + "\" "
-			+ (((int)key == genderId)? "selected": "")
-			+ "  >" + val + "</option>"
-			, (option, option1) -> option + "\n" + option1).toString() : ""/*/}
                     </Form.Select>
                   </Form.Group>
 
@@ -368,7 +368,8 @@ const UserProfilePopup = ({ text }) => {
                     <Button
                       variant="btn btn-danger"
                       className="form-control"
-                      type="reset"
+                      type="button"
+                      onClick={() => setRefetchFlag(refetchFlag + 1)}
                     >
                       Reset
                     </Button>
