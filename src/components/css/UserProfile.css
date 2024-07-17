@@ -1,0 +1,21 @@
+#upload {
+    opacity: 0;
+    height: 0;
+    position: absolute;
+    z-index: -1;
+ }
+ 
+ #upload-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    opacity: 0.6;
+    color: white;
+    width: 100%;
+    background-color: black;
+ }
+ 
+ #upload-submission {
+     display: none;
+ }
