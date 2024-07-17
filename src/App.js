@@ -15,6 +15,7 @@ import SubjectDetail from "./components/SubjectDetail";
 import SubjectLevelFilter from "./components/SubjectLevelFilter";
 import UserProfilePopup from "./components/UserProfile";
 import ContainerSubjectsList from "./components/ContainerSubjectsList";
+import HomePage from "./pages/HomePage";
 
 const Home = () => (
   <Container className="mt-4">
@@ -27,16 +28,14 @@ const App = () => {
       <SubjectProvider>
         <Router>
           <AppNavbar />
-          <Container className="mt-4">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<HomePage />} />
               {/* <Route path="/add" element={<AddSubjectForm />} />
               <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
               <Route path="/Subject/:id" element={<SubjectDetail />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/subjectsList" element={<ContainerSubjectsList />} />
             </Routes>
-          </Container>
         </Router>
       </SubjectProvider>
     </UserProvider>

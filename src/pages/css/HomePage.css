@@ -1,0 +1,13 @@
+.slider {
+    & img {
+        height: 500px; 
+        object-fit: contain;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, 0)
+    }
+
+	height: 500px; 
+	position: relative;
+	background: rgba(0, 0, 0, 0.5);
+}
