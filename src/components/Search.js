@@ -17,7 +17,7 @@ const Search = () => {
           <Form.Group>
             <Form.Control
               type="text"
-              placeholder="Search employees by name"
+              placeholder="Search Subjects by Title"
               value={searchTerm}
               onChange={handleSearchChange}
             />

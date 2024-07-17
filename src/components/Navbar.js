@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
+import UserProfilePopup from './UserProfile';
 
 const AppNavbar = () => {
   const { user, logout } = useContext(UserContext);
@@ -30,13 +31,14 @@ const AppNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
+          <Nav.Link as={Link} to="/subjectsList">Subjects List</Nav.Link>
             <Nav.Link as={Link} to="/add-to-cart">Add To Cart</Nav.Link>
             <Nav.Link as={Link} to="/display-cart">Display Cart</Nav.Link>
           </Nav>
           <Nav>
             {user ? (
               <>
-                <Nav.Link>Hello, {user.FullName}</Nav.Link>
+				<UserProfilePopup text={"Hello," + user.FullName}/>
                 <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
               </>
             ) : (
