@@ -222,8 +222,8 @@
       "Password": "123",
       "RoleId": 2,
       "FullName": "glacier cosmogonists",
-      "GenderId": 2,
-      "Mobile": "09051261813",
+      "GenderId": "1",
+      "Mobile": "0946186547",
       "IsActive": true,
       "id": "d477"
     },
