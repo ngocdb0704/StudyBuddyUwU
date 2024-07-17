@@ -32,6 +32,16 @@ const AppNavbar = () => {
           <Nav className="me-auto">
           <Nav.Link as={Link} to="/subjectsList">Subjects List</Nav.Link>
           <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
+          <>
+          {user?
+          (
+          <Nav.Link as={Link} to="/registration">
+            My Registration
+          </Nav.Link>
+          )
+            :( <></>)
+          }
+          </>
           </Nav>
           <Nav>
             {user ? (

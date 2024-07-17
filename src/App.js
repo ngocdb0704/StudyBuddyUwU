@@ -12,9 +12,9 @@ import Search from "./components/Search";
 import LoginPage from "./components/LoginPage";
 import UserProvider from "./context/UserContext";
 import SubjectDetail from "./components/SubjectDetail";
-import SubjectLevelFilter from "./components/SubjectLevelFilter";
-import UserProfilePopup from "./components/UserProfile";
-import ContainerSubjectsList from "./components/ContainerSubjectsList";
+
+import RegistrationList from "./components/RegistrationList"; 
+import EditRegistForm from "./components/RegistrationEdit";
 
 const Home = () => (
   <Container className="mt-4">
@@ -39,8 +39,10 @@ const App = () => {
               <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
               <Route path="/Subject/:id" element={<SubjectDetail />} />
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/subjectsList" element={<ContainerSubjectsList />} />
+              <Route path="/subjectsList" element={<SubjectList />} />
+              <Route path="/registration" element={<RegistrationList/>}/>
               <Route path="/blog" element={<></>} />
+              <Route path="/registration/edit/:id" element={<EditRegistForm/>} />
             </Routes>
           </Container>
         </Router>

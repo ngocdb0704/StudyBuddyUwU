@@ -6833,179 +6833,86 @@
       "id": "a087"
     }
   ],
-  "RegistrationStatus": [
-    {
-      "RegistrationStatusId": 1,
-      "RegistrationStatusName": "Submitted",
-      "id": "277a"
-    },
-    {
-      "RegistrationStatusId": 2,
-      "RegistrationStatusName": "Pending Approval",
-      "id": "c48c"
-    },
-    {
-      "RegistrationStatusId": 3,
-      "RegistrationStatusName": "Active",
-      "id": "9d33"
-    },
-    {
-      "RegistrationStatusId": 4,
-      "RegistrationStatusName": "Withdrawn",
-      "id": "50ee"
-    },
-    {
-      "RegistrationStatusId": 5,
-      "RegistrationStatusName": "Inactive",
-      "id": "3643"
-    }
-  ],
   "Registration": [
     {
-      "RegistrationId": 1,
+      "id": 1,
       "UserId": 1,
       "RegistrationTime": "2024-05-01",
       "PackageId": 3,
-      "RegistrationStatusId": 3,
+      "SubjectId": 1,
+      "Status": true,
       "ValidFrom": "2024-05-10",
-      "ValidTo": "2024-08-10",
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "7b47"
+      "ValidTo": "2024-08-10"
     },
     {
-      "RegistrationId": 2,
-      "UserId": 1,
-      "PackageId": 7,
-      "RegistrationStatusId": 1,
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "61ef"
-    },
-    {
-      "RegistrationId": 3,
-      "UserId": 1,
-      "RegistrationTime": "2024-05-01",
-      "PackageId": 5,
-      "RegistrationStatusId": 2,
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "a088"
-    },
-    {
-      "RegistrationId": 4,
-      "UserId": 1,
-      "PackageId": 10,
-      "RegistrationStatusId": 1,
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "f18e"
-    },
-    {
-      "RegistrationId": 5,
+      "id": 5,
       "UserId": 1,
       "RegistrationTime": "2004-09-01",
       "PackageId": 15,
-      "RegistrationStatusId": 4,
+      "SubjectId": 5,
+      "Status": true,
       "ValidFrom": "2004-09-10",
-      "ValidTo": "2004-12-10",
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "93dc"
+      "ValidTo": "2004-12-10"
     },
     {
-      "RegistrationId": 6,
+      "id": 6,
       "UserId": 1,
       "RegistrationTime": "2004-09-01",
       "PackageId": 17,
-      "RegistrationStatusId": 5,
+      "SubjectId": 6,
+      "Status": true,
       "ValidFrom": "2004-09-10",
-      "ValidTo": "2004-12-10",
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "337a"
+      "ValidTo": "2004-12-10"
     },
     {
-      "RegistrationId": 7,
-      "UserId": 1,
-      "PackageId": 20,
-      "RegistrationStatusId": 1,
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "cd08"
-    },
-    {
-      "RegistrationId": 8,
-      "UserId": 1,
-      "RegistrationTime": "2024-05-01",
-      "PackageId": 22,
-      "RegistrationStatusId": 2,
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "2684"
-    },
-    {
-      "RegistrationId": 9,
+      "id": 9,
       "UserId": 1,
       "RegistrationTime": "2004-09-01",
       "PackageId": 25,
-      "RegistrationStatusId": 5,
+      "SubjectId": 9,
+      "Status": true,
       "ValidFrom": "2004-09-10",
-      "ValidTo": "2004-12-10",
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "1b6e"
+      "ValidTo": "2004-12-10"
     },
     {
-      "RegistrationId": 10,
+      "id": 10,
       "UserId": 1,
-      "RegistrationTime": "2024-05-01",
+      "RegistrationTime": null,
       "PackageId": 29,
-      "RegistrationStatusId": 2,
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "fc9e"
+      "SubjectId": 10,
+      "Status": false,
+      "ValidFrom": null,
+      "ValidTo": null
     },
     {
-      "RegistrationId": 11,
+      "id": 11,
       "UserId": 1,
-      "RegistrationTime": "2024-05-01",
+      "RegistrationTime": null,
       "PackageId": 33,
-      "RegistrationStatusId": 2,
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "7db6"
+      "SubjectId": 11,
+      "Status": false,
+      "ValidFrom": null,
+      "ValidTo": null
     },
     {
-      "RegistrationId": 12,
+      "id": 12,
       "UserId": 1,
+      "RegistrationTime": null,
       "PackageId": 35,
-      "RegistrationStatusId": 1,
-      "id": "6cf4"
+      "SubjectId": 12,
+      "Status": false,
+      "ValidFrom": null,
+      "ValidTo": null
     },
     {
-      "RegistrationId": 13,
+      "id": 13,
       "UserId": 1,
       "RegistrationTime": "2024-05-01",
       "PackageId": 37,
-      "RegistrationStatusId": 3,
+      "SubjectId": 13,
+      "Status": true,
       "ValidFrom": "2024-05-10",
-      "ValidTo": "2024-08-10",
-      "TransactionContent": "abc",
-      "TransactionCode": "abc",
-      "TransactionAccount": "abc",
-      "id": "9a7e"
+      "ValidTo": "2024-08-10"
     }
   ],
   "BlogCategory": [
