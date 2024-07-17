@@ -14,6 +14,10 @@ const SubjectProvider = ({ children }) => {
     level3: true,
   });
 
+  //Ngoc's working on packages
+
+  const [packages, setPackages] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const catResponse = await axios.get(
@@ -22,6 +26,8 @@ const SubjectProvider = ({ children }) => {
       setCategories(catResponse.data);
       const subResponse = await axios.get("http://localhost:9999/Subject");
       setSubjects(subResponse.data);
+      const packageResponse = await axios.get("http://localhost:9999/Package");
+      setPackages(packageResponse.data);
     };
     fetchData();
   }, []);
@@ -55,7 +61,8 @@ const SubjectProvider = ({ children }) => {
         addSubject,
         getCategoryName,
         levelFilter, 
-        setLevelFilter
+        setLevelFilter,
+        packages
       }}
     >
       {children}
