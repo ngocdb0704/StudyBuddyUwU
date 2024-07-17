@@ -6311,5 +6311,502 @@
       "BlogCategoryId": 8,
       "BlogCategoryName": "Product Updates"
     }
+  ],
+  "Blog": [
+    {
+      "BlogId": 1,
+      "UserId": 1,
+      "BlogCategoryId": 1,
+      "BlogTitle": "Top 5 Strategies for Acing Your Quizzes",
+      "UpdatedTime": "2024-02-15T00:00:00",
+      "PostBrief": "Learn the top 5 strategies to improve your quiz scores and ace every test.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 2,
+      "UserId": 1,
+      "BlogCategoryId": 1,
+      "BlogTitle": "How to Effectively Manage Your Time During Quizzes",
+      "UpdatedTime": "2024-02-20T00:00:00",
+      "PostBrief": "Discover time management techniques to help you finish quizzes on time without rushing.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 3,
+      "UserId": 1,
+      "BlogCategoryId": 1,
+      "BlogTitle": "The Power of Practice Quizzes",
+      "UpdatedTime": "2024-03-01T00:00:00",
+      "PostBrief": "Understand the benefits of taking practice quizzes and how they can enhance your learning.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 4,
+      "UserId": 1,
+      "BlogCategoryId": 1,
+      "BlogTitle": "Analyzing Quiz Questions: What to Look For",
+      "UpdatedTime": "2024-03-05T00:00:00",
+      "PostBrief": "Learn how to break down quiz questions to understand what is being asked and how to answer effectively.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 5,
+      "UserId": 1,
+      "BlogCategoryId": 1,
+      "BlogTitle": "Using Elimination Methods to Improve Quiz Performance",
+      "UpdatedTime": "2024-03-10T00:00:00",
+      "PostBrief": "Explore the process of eliminating incorrect answers to increase your chances of choosing the right one.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 6,
+      "UserId": 1,
+      "BlogCategoryId": 1,
+      "BlogTitle": "Quiz Strategies for Different Learning Styles",
+      "UpdatedTime": "2024-03-15T00:00:00",
+      "PostBrief": "Find out how to tailor quiz strategies to match your learning style for better results.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 7,
+      "UserId": 1,
+      "BlogCategoryId": 1,
+      "BlogTitle": "Creating a Study Schedule for Quiz Preparation",
+      "UpdatedTime": "2024-03-20T00:00:00",
+      "PostBrief": "Learn how to create a study schedule that optimizes your quiz preparation time.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 8,
+      "UserId": 1,
+      "BlogCategoryId": 2,
+      "BlogTitle": "Effective Test Preparation Techniques",
+      "UpdatedTime": "2024-03-25T00:00:00",
+      "PostBrief": "Master the most effective techniques for preparing for tests.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 9,
+      "UserId": 1,
+      "BlogCategoryId": 2,
+      "BlogTitle": "The Importance of Sleep Before a Test",
+      "UpdatedTime": "2024-03-30T00:00:00",
+      "PostBrief": "Discover why a good nights sleep is crucial before taking a test.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 10,
+      "UserId": 1,
+      "BlogCategoryId": 2,
+      "BlogTitle": "Balancing Study Sessions with Breaks",
+      "UpdatedTime": "2024-04-05T00:00:00",
+      "PostBrief": "Learn how to balance study sessions with breaks to maximize retention.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 11,
+      "UserId": 1,
+      "BlogCategoryId": 2,
+      "BlogTitle": "Using Flashcards for Test Prep",
+      "UpdatedTime": "2024-04-10T00:00:00",
+      "PostBrief": "Explore the benefits of using flashcards as a study tool for test preparation.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 12,
+      "UserId": 1,
+      "BlogCategoryId": 2,
+      "BlogTitle": "Group Study vs. Solo Study: Pros and Cons",
+      "UpdatedTime": "2024-04-15T00:00:00",
+      "PostBrief": "Weigh the pros and cons of group study versus solo study for test preparation.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 13,
+      "UserId": 1,
+      "BlogCategoryId": 2,
+      "BlogTitle": "How to Create a Test Prep Plan",
+      "UpdatedTime": "2024-04-20T00:00:00",
+      "PostBrief": "Learn how to create a comprehensive test preparation plan.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 14,
+      "UserId": 1,
+      "BlogCategoryId": 3,
+      "BlogTitle": "Techniques to Reduce Exam Anxiety",
+      "UpdatedTime": "2024-04-25T00:00:00",
+      "PostBrief": "Discover effective techniques to manage and reduce exam anxiety.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 15,
+      "UserId": 1,
+      "BlogCategoryId": 3,
+      "BlogTitle": "How to Stay Calm During an Exam",
+      "UpdatedTime": "2024-04-30T00:00:00",
+      "PostBrief": "Learn strategies to stay calm and focused during exams.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 16,
+      "UserId": 1,
+      "BlogCategoryId": 3,
+      "BlogTitle": "The Role of Mindfulness in Exam Preparation",
+      "UpdatedTime": "2024-05-05T00:00:00",
+      "PostBrief": "Understand how mindfulness practices can help in exam preparation.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 17,
+      "UserId": 1,
+      "BlogCategoryId": 3,
+      "BlogTitle": "Breathing Exercises to Manage Exam Stress",
+      "UpdatedTime": "2024-05-10T00:00:00",
+      "PostBrief": "Explore breathing exercises that can help reduce stress during exams.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 18,
+      "UserId": 1,
+      "BlogCategoryId": 3,
+      "BlogTitle": "How to Overcome Negative Thoughts Before an Exam",
+      "UpdatedTime": "2024-05-15T00:00:00",
+      "PostBrief": "Learn techniques to overcome negative thoughts and boost confidence before exams.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 19,
+      "UserId": 1,
+      "BlogCategoryId": 3,
+      "BlogTitle": "Building a Positive Mindset for Exam Success",
+      "UpdatedTime": "2024-05-20T00:00:00",
+      "PostBrief": "Discover ways to build a positive mindset for better exam performance.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 20,
+      "UserId": 1,
+      "BlogCategoryId": 3,
+      "BlogTitle": "Nutrition Tips to Reduce Exam Stress",
+      "UpdatedTime": "2024-05-25T00:00:00",
+      "PostBrief": "Learn how proper nutrition can help reduce stress and improve exam performance.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 21,
+      "UserId": 1,
+      "BlogCategoryId": 4,
+      "BlogTitle": "Top 10 Popular Quiz Categories in 2024",
+      "UpdatedTime": "2024-02-01T00:00:00",
+      "PostBrief": "Explore the top 10 quiz categories that are trending in 2024.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 22,
+      "UserId": 1,
+      "BlogCategoryId": 4,
+      "BlogTitle": "Why General Knowledge Quizzes Are So Popular",
+      "UpdatedTime": "2024-02-05T00:00:00",
+      "PostBrief": "Understand why general knowledge quizzes attract so many participants.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 23,
+      "UserId": 1,
+      "BlogCategoryId": 4,
+      "BlogTitle": "The Rise of Pop Culture Quizzes",
+      "UpdatedTime": "2024-02-10T00:00:00",
+      "PostBrief": "Discover the reasons behind the popularity of pop culture quizzes.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 24,
+      "UserId": 1,
+      "BlogCategoryId": 4,
+      "BlogTitle": "History Quizzes: Fun and Educational",
+      "UpdatedTime": "2024-02-15T00:00:00",
+      "PostBrief": "Learn why history quizzes are both fun and educational.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 25,
+      "UserId": 1,
+      "BlogCategoryId": 4,
+      "BlogTitle": "Science Quizzes: Test Your Knowledge",
+      "UpdatedTime": "2024-02-20T00:00:00",
+      "PostBrief": "Challenge your knowledge with engaging science quizzes.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 26,
+      "UserId": 1,
+      "BlogCategoryId": 4,
+      "BlogTitle": "The Popularity of Literature Quizzes",
+      "UpdatedTime": "2024-02-25T00:00:00",
+      "PostBrief": "Explore the reasons why literature quizzes are a hit among readers.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 27,
+      "UserId": 1,
+      "BlogCategoryId": 4,
+      "BlogTitle": "Sports Quizzes: Are You a True Fan?",
+      "UpdatedTime": "2024-03-01T00:00:00",
+      "PostBrief": "Test your sports knowledge with exciting sports quizzes.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 28,
+      "UserId": 1,
+      "BlogCategoryId": 5,
+      "BlogTitle": "How I Aced My Exams Using These Tips",
+      "UpdatedTime": "2024-01-05T00:00:00",
+      "PostBrief": "Read the success story of a student who aced their exams using our tips.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 29,
+      "UserId": 1,
+      "BlogCategoryId": 5,
+      "BlogTitle": "From Failing to Passing: A Students Journey",
+      "UpdatedTime": "2024-01-10T00:00:00",
+      "PostBrief": "Discover how a student turned their grades around with effective study strategies.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 30,
+      "UserId": 1,
+      "BlogCategoryId": 5,
+      "BlogTitle": "Overcoming Exam Anxiety: A Personal Story",
+      "UpdatedTime": "2024-01-15T00:00:00",
+      "PostBrief": "Read a personal story of overcoming exam anxiety and achieving success.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 31,
+      "UserId": 1,
+      "BlogCategoryId": 5,
+      "BlogTitle": "Achieving Top Scores with Consistent Effort",
+      "UpdatedTime": "2024-01-20T00:00:00",
+      "PostBrief": "Learn how consistent effort helped a student achieve top scores.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 32,
+      "UserId": 1,
+      "BlogCategoryId": 5,
+      "BlogTitle": "Success Story: Using Quizzes for Better Learning",
+      "UpdatedTime": "2024-01-25T00:00:00",
+      "PostBrief": "Find out how using quizzes as a learning tool led to academic success.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 33,
+      "UserId": 1,
+      "BlogCategoryId": 5,
+      "BlogTitle": "The Power of a Positive Mindset in Exam Success",
+      "UpdatedTime": "2024-01-30T00:00:00",
+      "PostBrief": "Discover the impact of a positive mindset on exam success through this story.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 34,
+      "UserId": 1,
+      "BlogCategoryId": 5,
+      "BlogTitle": "From Struggling to Thriving: A Students Tale",
+      "UpdatedTime": "2024-02-01T00:00:00",
+      "PostBrief": "Read about a students journey from struggling to thriving in their studies.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 35,
+      "UserId": 1,
+      "BlogCategoryId": 6,
+      "BlogTitle": "5 Study Habits of Successful Students",
+      "UpdatedTime": "2024-02-05T00:00:00",
+      "PostBrief": "Discover the study habits that successful students swear by.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 36,
+      "UserId": 1,
+      "BlogCategoryId": 6,
+      "BlogTitle": "How to Stay Organized During the School Year",
+      "UpdatedTime": "2024-02-10T00:00:00",
+      "PostBrief": "Learn tips and tricks to stay organized throughout the school year.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 37,
+      "UserId": 1,
+      "BlogCategoryId": 6,
+      "BlogTitle": "Effective Note-Taking Strategies",
+      "UpdatedTime": "2024-02-15T00:00:00",
+      "PostBrief": "Explore different note-taking strategies to enhance your learning.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 38,
+      "UserId": 1,
+      "BlogCategoryId": 6,
+      "BlogTitle": "Maximizing Productivity: Tips for Students",
+      "UpdatedTime": "2024-02-20T00:00:00",
+      "PostBrief": "Discover ways to maximize productivity and make the most of your study time.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 39,
+      "UserId": 1,
+      "BlogCategoryId": 6,
+      "BlogTitle": "How to Avoid Procrastination",
+      "UpdatedTime": "2024-02-25T00:00:00",
+      "PostBrief": "Learn techniques to avoid procrastination and stay on track with your studies.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 40,
+      "UserId": 1,
+      "BlogCategoryId": 6,
+      "BlogTitle": "Balancing School and Extracurricular Activities",
+      "UpdatedTime": "2024-03-01T00:00:00",
+      "PostBrief": "Find out how to balance school work with extracurricular activities effectively.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 41,
+      "UserId": 1,
+      "BlogCategoryId": 6,
+      "BlogTitle": "Tips for Effective Group Study Sessions",
+      "UpdatedTime": "2024-03-05T00:00:00",
+      "PostBrief": "Learn tips for making the most out of group study sessions.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 42,
+      "UserId": 1,
+      "BlogCategoryId": 7,
+      "BlogTitle": "Introducing Our New Quiz Feature!",
+      "UpdatedTime": "2024-03-10T00:00:00",
+      "PostBrief": "Discover the exciting new quiz feature weve just launched.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 43,
+      "UserId": 1,
+      "BlogCategoryId": 7,
+      "BlogTitle": "New User Interface: A Fresh Look",
+      "UpdatedTime": "2024-03-15T00:00:00",
+      "PostBrief": "Explore the changes in our new user interface designed for a better experience.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 44,
+      "UserId": 1,
+      "BlogCategoryId": 7,
+      "BlogTitle": "Enhanced Performance Metrics for Your Quizzes",
+      "UpdatedTime": "2024-03-20T00:00:00",
+      "PostBrief": "Learn about the enhanced performance metrics available for your quizzes.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 45,
+      "UserId": 1,
+      "BlogCategoryId": 7,
+      "BlogTitle": "Customizable Quiz Themes Now Available",
+      "UpdatedTime": "2024-03-25T00:00:00",
+      "PostBrief": "Discover how you can now customize quiz themes to match your preferences.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 46,
+      "UserId": 1,
+      "BlogCategoryId": 7,
+      "BlogTitle": "New Language Support: Quiz in Your Language",
+      "UpdatedTime": "2024-03-30T00:00:00",
+      "PostBrief": "Find out about the new languages weve added support for in our quizzes.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 47,
+      "UserId": 1,
+      "BlogCategoryId": 7,
+      "BlogTitle": "Improved Accessibility Features",
+      "UpdatedTime": "2024-04-05T00:00:00",
+      "PostBrief": "Learn about the improved accessibility features weve implemented.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 48,
+      "UserId": 1,
+      "BlogCategoryId": 7,
+      "BlogTitle": "Introducing Quiz Leaderboards",
+      "UpdatedTime": "2024-04-10T00:00:00",
+      "PostBrief": "Get competitive with our new quiz leaderboards feature.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 49,
+      "UserId": 1,
+      "BlogCategoryId": 8,
+      "BlogTitle": "Latest Product Update: Whats New?",
+      "UpdatedTime": "2024-04-15T00:00:00",
+      "PostBrief": "Find out whats new in our latest product update.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 50,
+      "UserId": 1,
+      "BlogCategoryId": 8,
+      "BlogTitle": "Bug Fixes and Improvements",
+      "UpdatedTime": "2024-04-20T00:00:00",
+      "PostBrief": "Learn about the latest bug fixes and performance improvements.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 51,
+      "UserId": 1,
+      "BlogCategoryId": 8,
+      "BlogTitle": "New Features Added in the Latest Release",
+      "UpdatedTime": "2024-04-25T00:00:00",
+      "PostBrief": "Discover the new features added in our latest product release.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 52,
+      "UserId": 1,
+      "BlogCategoryId": 8,
+      "BlogTitle": "Upcoming Changes You Should Know About",
+      "UpdatedTime": "2024-04-30T00:00:00",
+      "PostBrief": "Stay informed about the upcoming changes in our product.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 53,
+      "UserId": 1,
+      "BlogCategoryId": 8,
+      "BlogTitle": "User Feedback: What Weve Improved",
+      "UpdatedTime": "2024-05-05T00:00:00",
+      "PostBrief": "See how user feedback has shaped our recent improvements.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 54,
+      "UserId": 1,
+      "BlogCategoryId": 8,
+      "BlogTitle": "Enhanced Security Features",
+      "UpdatedTime": "2024-05-10T00:00:00",
+      "PostBrief": "Learn about the enhanced security features weve implemented.",
+      "PostText": ""
+    },
+    {
+      "BlogId": 55,
+      "UserId": 1,
+      "BlogCategoryId": 8,
+      "BlogTitle": "Faster Loading Times with Our Latest Update",
+      "UpdatedTime": "2024-05-15T00:00:00",
+      "PostBrief": "Experience faster loading times with our latest update.",
+      "PostText": ""
+    }
   ]
 }

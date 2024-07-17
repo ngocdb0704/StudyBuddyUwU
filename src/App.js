@@ -46,12 +46,7 @@ const App = () => {
           <AppNavbar />
           <Container className="mt-4">
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <Home/>
-                }
-              />
+              <Route path="/" element={<Home />} />
               {/* <Route path="/add" element={<AddSubjectForm />} />
               <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
               <Route path="/Subject/:id" element={<SubjectDetail />} />
