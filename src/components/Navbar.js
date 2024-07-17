@@ -42,7 +42,7 @@ const AppNavbar = () => {
                 <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
               </>
             ) : (
-              <Button variant="outline-light" as={Link} to="/">Login</Button>
+              <Button variant="outline-light" as={Link} to="/login">Login</Button>
             )}
           </Nav>
         </Navbar.Collapse>

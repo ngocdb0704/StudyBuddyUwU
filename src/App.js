@@ -29,25 +29,7 @@ const Home = () => (
 );
 
 const Navigation = () => (
-  <div className="nav-bar">
-    <div className="nav-bar-content">
-      <Link to="/" className="nav-link">
-        Home
-      </Link>
-      <Link to="/blog" className="nav-link">
-        Blog
-      </Link>
-      <Link to="/add-attendee" className="nav-link">
-        Add Attendee
-      </Link>
-      <Link to="/add-attendee-to-cart" className="nav-link">
-        Add to Team
-      </Link>
-      <Link to="/display-cart" className="nav-link">
-        Display Team
-      </Link>
-    </div>
-  </div>
+  <AppNavbar></AppNavbar>
 );
 
 const AppLayout = () => (
