@@ -32,8 +32,7 @@ const AppNavbar = () => {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
           <Nav.Link as={Link} to="/subjectsList">Subjects List</Nav.Link>
-            <Nav.Link as={Link} to="/add-to-cart">Add To Cart</Nav.Link>
-            <Nav.Link as={Link} to="/display-cart">Display Cart</Nav.Link>
+          <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
           </Nav>
           <Nav>
             {user ? (

@@ -57,15 +57,7 @@ const App = () => {
               <Route path="/Subject/:id" element={<SubjectDetail />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/subjectsList" element={<ContainerSubjectsList />} />
-              <Route path="/" element={<AppLayout />}>
-                <Route index element={<Home />} />
-                {/* <Route path="/add" element={<AddSubjectForm />} />
-                <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
-                <Route path="/Subject/:id" element={<SubjectDetail />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/blog" element={<></>} />
-                <Route path="/subjectsList" element={<ContainerSubjectsList />} />
-              </Route>
+              <Route path="/blog" element={<></>} />
             </Routes>
           </Container>
         </Router>
