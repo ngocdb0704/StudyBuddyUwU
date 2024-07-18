@@ -10,6 +10,7 @@ const SubjectProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterPaid, setFilterPaid] = useState('');
+  const [register, setRegistered] = useState(false);
   const [levelFilter, setLevelFilter] = useState({
     level1: true,
     level2: true,
@@ -94,7 +95,9 @@ const SubjectProvider = ({ children }) => {
         setFilterPaid,
         registrations,
         setRegistrations,
-        addRegistration
+        addRegistration,
+        register,
+        setRegistered
       }}
     >
       {children}

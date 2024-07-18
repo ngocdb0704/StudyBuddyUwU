@@ -4,12 +4,15 @@ import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import UserProfilePopup from './UserProfile';
+import { SubjectContext } from '../context/SubjectContext';
 
 const AppNavbar = () => {
   const { user, logout } = useContext(UserContext);
+  const {setRegistered} = useContext(SubjectContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    setRegistered(false);
     logout();
     navigate('/login');
   };

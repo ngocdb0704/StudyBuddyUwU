@@ -106,11 +106,16 @@ const RegistrationList = () => {
                                             <Row>
                                                 <Col style={{ marginRight: '3%' }} >
                                                     <Row style={{ marginBottom: '10%' }}>
-                                                        <Button disabled={registration.Status == true} variant="success">Buy</Button>
+                                                        <Button as={Link} to={`/registration/pay/${registration.id}`}
+                                                            disabled={registration.Status == true}
+                                                            variant="success">
+                                                            Buy
+                                                        </Button>
                                                     </Row>
                                                     <Row>
                                                         <Button variant='danger'
                                                             disabled={registration.Status == true}
+                                                            style={{opacity:'1.0'}}
                                                             onClick={() => deleteSubject(registration.id)}>
                                                             Cancel
                                                         </Button>
@@ -118,13 +123,12 @@ const RegistrationList = () => {
                                                 </Col>
                                                 <Col style={{ marginRight: '3%' }} >
                                                     <Row style={{ marginBottom: '10%' }} >
-                                                        <Link style={{ textDecoration: 'none' }} to={`/registration/edit/${registration.id}`}>
-                                                            <Row>
-                                                                <Button disabled={registration.Status == true} variant="warning">
-                                                                    Edit
-                                                                </Button>
-                                                            </Row>
-                                                        </Link>
+                                                        <Button
+                                                            as={Link} to={`/registration/edit/${registration.id}`}
+                                                            disabled={registration.Status == true}
+                                                            variant="warning">
+                                                            Edit
+                                                        </Button>
                                                     </Row>
                                                     <Row>
                                                         <Button variant="primary">

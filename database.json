@@ -6943,6 +6943,46 @@
       "Status": false,
       "ValidFrom": null,
       "ValidTo": null
+    },
+    {
+      "id": 17,
+      "UserId": 1,
+      "RegistrationTime": null,
+      "PackageId": 45,
+      "SubjectId": 15,
+      "Status": false,
+      "ValidFrom": null,
+      "ValidTo": null
+    },
+    {
+      "id": 18,
+      "UserId": 1,
+      "RegistrationTime": null,
+      "PackageId": 48,
+      "SubjectId": 16,
+      "Status": false,
+      "ValidFrom": null,
+      "ValidTo": null
+    },
+    {
+      "id": 19,
+      "UserId": 1,
+      "RegistrationTime": null,
+      "PackageId": 102,
+      "SubjectId": 34,
+      "Status": false,
+      "ValidFrom": null,
+      "ValidTo": null
+    },
+    {
+      "id": 20,
+      "UserId": 1,
+      "RegistrationTime": "2024-7-18",
+      "PackageId": 42,
+      "SubjectId": 14,
+      "Status": true,
+      "ValidFrom": "2024-7-18",
+      "ValidTo": "2024-10-16"
     }
   ],
   "BlogCategory": [
@@ -6987,9 +7027,7 @@
       "id": "24f2"
     }
   ],
-
-  
-    "quiz": {
+  "quiz": {
     "topic": "Javascript",
     "level": "Beginner",
     "totalQuestions": 10,
@@ -6998,74 +7036,123 @@
       {
         "id": 1,
         "question": "Which function is used to serialize an object into a JSON string in Javascript?",
-        "choices": ["stringify()", "parse()", "convert()", "None of the above"],
+        "choices": [
+          "stringify()",
+          "parse()",
+          "convert()",
+          "None of the above"
+        ],
         "type": "MCQs",
         "correctAnswer": "stringify()"
       },
       {
         "id": 2,
         "question": "Which of the following keywords is used to define a variable in Javascript?",
-        "choices": ["var", "let", "var and let", "None of the above"],
+        "choices": [
+          "var",
+          "let",
+          "var and let",
+          "None of the above"
+        ],
         "type": "MCQs",
         "correctAnswer": "var and let"
       },
       {
         "id": 3,
         "question": "Which of the following methods can be used to display data in some form using Javascript?",
-        "choices": ["document.write()", "console.log()", "window.alert", "All of the above"],
+        "choices": [
+          "document.write()",
+          "console.log()",
+          "window.alert",
+          "All of the above"
+        ],
         "type": "MCQs",
         "correctAnswer": "All of the above"
       },
       {
         "id": 4,
         "question": "How can a datatype be declared to be a constant type?",
-        "choices": ["const", "var", "let", "constant"],
+        "choices": [
+          "const",
+          "var",
+          "let",
+          "constant"
+        ],
         "type": "MCQs",
         "correctAnswer": "const"
       },
       {
         "id": 5,
         "question": "What is the output of the following code: console.log(typeof undefined);",
-        "choices": ["undefined", "null", "object", "string"],
+        "choices": [
+          "undefined",
+          "null",
+          "object",
+          "string"
+        ],
         "type": "MCQs",
         "correctAnswer": "undefined"
       },
       {
         "id": 6,
         "question": "Which operator is used to concatenate strings in Javascript?",
-        "choices": ["+", "&", ".", ","],
+        "choices": [
+          "+",
+          "&",
+          ".",
+          ","
+        ],
         "type": "MCQs",
         "correctAnswer": "+"
       },
       {
         "id": 7,
         "question": "What does NaN stand for in Javascript?",
-        "choices": ["Not a Null", "Not a Number", "Null and Notable", "None of the above"],
+        "choices": [
+          "Not a Null",
+          "Not a Number",
+          "Null and Notable",
+          "None of the above"
+        ],
         "type": "MCQs",
         "correctAnswer": "Not a Number"
       },
       {
         "id": 8,
         "question": "How do you declare a function in Javascript?",
-        "choices": ["function myFunction()", "myFunction()", "function = myFunction()", "None of the above"],
+        "choices": [
+          "function myFunction()",
+          "myFunction()",
+          "function = myFunction()",
+          "None of the above"
+        ],
         "type": "MCQs",
         "correctAnswer": "function myFunction()"
       },
       {
         "id": 9,
         "question": "Which method removes the last element from an array and returns that element in Javascript?",
-        "choices": ["pop()", "shift()", "slice()", "None of the above"],
+        "choices": [
+          "pop()",
+          "shift()",
+          "slice()",
+          "None of the above"
+        ],
         "type": "MCQs",
         "correctAnswer": "pop()"
       },
       {
         "id": 10,
         "question": "Which method adds one or more elements to the end of an array and returns the new length of the array in Javascript?",
-        "choices": ["unshift()", "push()", "splice()", "None of the above"],
+        "choices": [
+          "unshift()",
+          "push()",
+          "splice()",
+          "None of the above"
+        ],
         "type": "MCQs",
         "correctAnswer": "push()"
       }
-      ]
-    
+    ]
   }
 }

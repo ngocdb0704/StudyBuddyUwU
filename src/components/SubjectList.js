@@ -8,13 +8,15 @@ import StatusFilter from './SubjectLevelFilter';
 import Search from './Search';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import RegisterFilter from './SubjectRegisterFilter';
 
 const SubjectList = () => {
-  const { subjects, selectedCategory, searchTerm, levelFilter, packages, addRegistration } = useContext(SubjectContext);
+  const { subjects, selectedCategory, searchTerm, levelFilter, packages, addRegistration, register } = useContext(SubjectContext);
   const { user } = useContext(UserContext);
   const [currentPage, setCurrentPage] = useState(1);
   const subjectsPerPage = 6;
   const [registData, setRegistData] = useState([]);
+  
   useEffect(() => {
     fetchRegist();
     console.log(registData);
@@ -29,11 +31,13 @@ const SubjectList = () => {
   };
 
   const filteredSubjects = subjects.filter(subject => {
+    let registered = !registData.some(pack=> pack.SubjectId === subject.SubjectId);
+    if(register) registered = !registered;
     const matchStatus = subject.SubjectStatus === true;
     const matchesCategory = selectedCategory ? subject.SubjectCategoryId === Number(selectedCategory) : true;
     const matchesSearch = subject.SubjectTitle.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesLevel = (subject.SubjectLevelId === 1 && levelFilter.level1) || (subject.SubjectLevelId === 2 && levelFilter.level2) || (subject.SubjectLevelId === 3 && levelFilter.level3);
-    return matchesCategory && matchesSearch && matchesLevel && matchStatus;
+    return matchesCategory && matchesSearch && matchesLevel && matchStatus && registered;
   });
 
 
@@ -68,7 +72,12 @@ const SubjectList = () => {
           <h2>Search</h2>
           <Search />
           <br></br>
-          <h2>Levels</h2>
+          {user? <>
+            <h2>Levels</h2>
+          <RegisterFilter />
+          <br></br>
+          </>  :<></>}
+          <h2>Registered</h2>
           <StatusFilter />
           <br></br>
           <h2>Categories</h2>

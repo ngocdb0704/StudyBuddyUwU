@@ -17,6 +17,7 @@ import RegistrationList from "./components/RegistrationList";
 import EditRegistForm from "./components/RegistrationEdit";
 import Quiz from "./quiz/Quiz";
 import QuizList from "./quiz/QuizList";
+import PayRegistForm from "./components/RegistrationPay";
 
 const Home = () => (
   <Container className="mt-4">
@@ -47,6 +48,7 @@ const App = () => {
               <Route path="/registration/edit/:id" element={<EditRegistForm />} />
               <Route path="/quiz-list" element={<QuizList />} />
               <Route path="/quiz" element={<Quiz />} />
+              <Route path="/registration/pay/:id" element={<PayRegistForm />} />
             </Routes>
           </Container>
         </Router>
