@@ -13,8 +13,10 @@ import LoginPage from "./components/LoginPage";
 import UserProvider from "./context/UserContext";
 import SubjectDetail from "./components/SubjectDetail";
 
-import RegistrationList from "./components/RegistrationList"; 
+import RegistrationList from "./components/RegistrationList";
 import EditRegistForm from "./components/RegistrationEdit";
+import Quiz from "./quiz/Quiz";
+import QuizList from "./quiz/QuizList";
 
 const Home = () => (
   <Container className="mt-4">
@@ -32,7 +34,7 @@ const App = () => {
               <Route
                 path="/"
                 element={
-                  <Home/>
+                  <Home />
                 }
               />
               {/* <Route path="/add" element={<AddSubjectForm />} />
@@ -40,9 +42,11 @@ const App = () => {
               <Route path="/Subject/:id" element={<SubjectDetail />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/subjectsList" element={<SubjectList />} />
-              <Route path="/registration" element={<RegistrationList/>}/>
+              <Route path="/registration" element={<RegistrationList />} />
               <Route path="/blog" element={<></>} />
-              <Route path="/registration/edit/:id" element={<EditRegistForm/>} />
+              <Route path="/registration/edit/:id" element={<EditRegistForm />} />
+              <Route path="/quiz-list" element={<QuizList />} />
+              <Route path="/quiz" element={<Quiz />} />
             </Routes>
           </Container>
         </Router>

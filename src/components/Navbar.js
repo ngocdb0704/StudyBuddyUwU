@@ -42,6 +42,7 @@ const AppNavbar = () => {
             :( <></>)
           }
           </>
+          <Nav.Link as={Link} to="/quiz-list">Quizzes</Nav.Link>
           </Nav>
           <Nav>
             {user ? (
