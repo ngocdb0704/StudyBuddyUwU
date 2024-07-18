@@ -41,6 +41,14 @@ const SubjectProvider = ({ children }) => {
     setSubjects([...subjects, response.data]);
   };
 
+  const updateSubject = async (updatedSubject) => {
+    const response = await axios.put(`http://localhost:9999/Subject/${updatedSubject.SubjectId}`, updatedSubject);
+    const updatedSubjects = subjects.map((subject) =>
+      subject.SubjectId === updatedSubject.SubjectId ? response.data : subject
+    );
+    setSubjects(updatedSubjects);
+  };
+
   const getCategoryName = (categoryId) => {
     const category = categories.find(
       (cat) => cat.subjectCategoryId === categoryId
@@ -59,6 +67,7 @@ const SubjectProvider = ({ children }) => {
         searchTerm,
         setSearchTerm,
         addSubject,
+        updateSubject,
         getCategoryName,
         levelFilter, 
         setLevelFilter,

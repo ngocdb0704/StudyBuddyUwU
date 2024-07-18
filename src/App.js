@@ -18,19 +18,18 @@ import Search from "./components/Search";
 // import EditSubjectForm from './components/EditSubjectForm'; // Assume you have this component
 import LoginPage from "./components/LoginPage";
 import UserProvider from "./context/UserContext";
+import BlogProvider from "./context/BlogContext";
 import SubjectDetail from "./components/SubjectDetail";
 import SubjectLevelFilter from "./components/SubjectLevelFilter";
 import UserProfilePopup from "./components/UserProfile";
 import ContainerSubjectsList from "./components/ContainerSubjectsList";
+import BlogList from "./components/BlogList";
+import AdminContainerSubjectsList from "./components/admin/AdminContainerSubjectList";
+import AdminSubjectOverview from "./components/admin/AdminSubjectOverview";
 
-const Home = () => (
-  <Container className="mt-4">
-  </Container>
-);
+const Home = () => <Container className="mt-4"></Container>;
 
-const Navigation = () => (
-  <AppNavbar></AppNavbar>
-);
+const Navigation = () => <AppNavbar></AppNavbar>;
 
 const AppLayout = () => (
   <>
@@ -39,28 +38,41 @@ const AppLayout = () => (
   </>
 );
 
+const ProtectedRoute = ({ children }) => {
+  const user = JSON.parse(localStorage.getItem('user')); 
+
+  if (!user) {
+      return <Navigate to="/login" />;
+  }
+
+  return children;
+};
+
 const App = () => {
   return (
     <UserProvider>
       <SubjectProvider>
-        <Router>
-          <Container className="mt-4">
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Home/>
-                }
-              />
-              {/* <Route path="/add" element={<AddSubjectForm />} />
+        <BlogProvider>
+          <Router>
+            <AppNavbar />
+            <Container className="mt-4">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                {/* <Route path="/add" element={<AddSubjectForm />} />
               <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
-              <Route path="/Subject/:id" element={<SubjectDetail />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/subjectsList" element={<ContainerSubjectsList />} />
-              <Route path="/blog" element={<></>} />
-            </Routes>
-          </Container>
-        </Router>
+                <Route path="/Subject/:id" element={<SubjectDetail />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route
+                  path="/subjectsList"
+                  element={<ContainerSubjectsList />}
+                />
+                <Route path="/blogs" element={<BlogList/>} />
+                <Route path="/admin-subjectlist" element={<ProtectedRoute><AdminContainerSubjectsList/></ProtectedRoute>} />
+                <Route path="/admin/subjects/:id" element={<ProtectedRoute><AdminSubjectOverview/></ProtectedRoute>} />
+              </Routes>
+            </Container>
+          </Router>
+        </BlogProvider>
       </SubjectProvider>
     </UserProvider>
   );

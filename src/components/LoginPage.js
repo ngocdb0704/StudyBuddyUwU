@@ -14,8 +14,12 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = login(email, password);
-    if (user) {
-      navigate('/');
+    if (user || JSON.parse(localStorage.getItem('user'))) {
+      if (user.RoleId === 4 || JSON.parse(localStorage.getItem('user')).RoleId === 4) {
+        navigate('/admin-subjectlist');
+      } else {
+        navigate('/');
+      }
     } else {
       setError('Invalid email or password');
     }

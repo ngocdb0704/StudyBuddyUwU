@@ -22,6 +22,7 @@ const UserProvider = ({ children }) => {
     const foundUser = users.find((user) => user.Email === email && user.Password === password);
     if (foundUser) {
       setUser(foundUser);
+      localStorage.setItem('user', JSON.stringify(foundUser));
       return foundUser;
     } else {
       return null;
@@ -30,6 +31,7 @@ const UserProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+    localStorage.setItem('user', JSON.stringify(null));
   };
 
   return (

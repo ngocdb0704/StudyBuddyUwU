@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { SubjectContext } from '../context/SubjectContext';
@@ -8,7 +8,7 @@ import { UserContext } from '../context/UserContext';
 const SubjectDetail = () => {
   const { id } = useParams();
   const { subjects, categories } = useContext(SubjectContext);
-  const { users } = useContext(UserContext);
+  const { users, user } = useContext(UserContext);
   const subject = subjects.find(subject => subject.SubjectId === Number(id));
 
   if (!subject) {
@@ -17,11 +17,12 @@ const SubjectDetail = () => {
 
   const categoryName = categories.find(category => category.SubjectCategoryId === subject.SubjectCategoryId)?.title || 'Unknown';
   const creatorName = users.find(user => user.UserId === subject.SubjectOwnerId)?.FullName || 'Unknown';
-
+  const isAdmin = user && user.RoleId === 4;
   return (
     <Container>
       <Row className="justify-content-md-center">
         <Col md="8">
+          <Link to={isAdmin?`/admin-subjectlist`:`/subjectsList`}>Return to subject list</Link>
           <Card>
             <Card.Body>
               <Card.Title>{subject.SubjectTitle}</Card.Title>
