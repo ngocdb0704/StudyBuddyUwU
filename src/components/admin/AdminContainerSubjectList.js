@@ -1,14 +1,14 @@
+// src/components/admin/AdminContainerSubjectsList.js
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import CategoryList from "./CaregoryList";
-import Search from "./Search";
-import SubjectList from "./SubjectList";
-import UserProvider from "../context/UserContext";
-import SubjectProvider from "../context/SubjectContext";
-import StatusFilter from "./SubjectLevelFilter";
+import CategoryList from "../CaregoryList"; 
+import Search from "../Search"; 
+import AdminSubjectList from "./AdminSubjectList";
+import UserProvider from "../../context/UserContext"; 
+import SubjectProvider from "../../context/SubjectContext"; 
+import StatusFilter from "../SubjectLevelFilter"; 
 
-
-const ContainerSubjectsList = () => (
+const AdminContainerSubjectsList = () => (
     <UserProvider>
         <SubjectProvider>
             <Container>
@@ -28,11 +28,12 @@ const ContainerSubjectsList = () => (
                                 <br />
                             </Col>
                         </Row>
-                        <SubjectList />
+                        <AdminSubjectList />
                     </Col>
                 </Row>
             </Container>
         </SubjectProvider>
     </UserProvider>
 );
-export default ContainerSubjectsList;
+
+export default AdminContainerSubjectsList;

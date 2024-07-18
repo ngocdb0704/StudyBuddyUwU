@@ -17,7 +17,7 @@ const UserProfileProvider = ({ children }) => {
       "IsActive": false
   });
   return (
-    <UserProfileContext.Provider value={{ userProfile, setUserProfile }}>
+    <UserProfileContext.Provider value={{ displayProfile, setDisplayProfile }}>
       {children}
     </UserProfileContext.Provider>
   );
