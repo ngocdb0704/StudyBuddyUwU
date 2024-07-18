@@ -14,10 +14,12 @@ const AppNavbar = () => {
     navigate('/login');
   };
 
+  const isAdmin = user && user.RoleId === 4;
+
   return (
-    <Navbar bg="primary" variant="dark" expand="lg">
+    <Navbar bg={isAdmin ? "dark" : "primary"} variant={isAdmin ? "dark" : "light"} expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand as={Link} to={isAdmin ? "/admin-subjectlist" : "/"}>
           <img
             alt=""
             src="/logo.png"
@@ -25,19 +27,24 @@ const AppNavbar = () => {
             height="30"
             className="d-inline-block align-top"
           />{' '}
-          Home
+          {isAdmin ? "Admin Home" : "Home"}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-          <Nav.Link as={Link} to="/subjectsList">Subjects List</Nav.Link>
-            <Nav.Link as={Link} to="/add-to-cart">Add To Cart</Nav.Link>
-            <Nav.Link as={Link} to="/display-cart">Display Cart</Nav.Link>
+            <Nav.Link as={Link} to={isAdmin ? "/admin-subjectlist" : "/subjectsList"}>
+              {isAdmin ? "Admin Subject List" : "Subjects List"}
+            </Nav.Link>
+            {!isAdmin && (
+              <Nav.Link as={Link} to="/blogs">
+                Blogs
+              </Nav.Link>
+            )}
           </Nav>
           <Nav>
-            {user ? (
+            {JSON.parse(localStorage.getItem('user')) || user ? (
               <>
-				<UserProfilePopup text={"Hello," + user.FullName}/>
+                <UserProfilePopup text={"Hello, " + JSON.parse(localStorage.getItem('user')).FullName} />
                 <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
               </>
             ) : (

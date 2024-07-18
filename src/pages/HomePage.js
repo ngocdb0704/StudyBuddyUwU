@@ -52,7 +52,7 @@ function Post({
   return (
     <div id={"post_" + postId} className="card">
       <div className="card-body">
-        <img className="profilePic" src={postThumbnail} />
+        <img className="profilePic" src={''} />
         <h5 className="card-title">{fullName}</h5>
         <i>{postTime}</i>
       </div>
@@ -62,7 +62,7 @@ function Post({
       </div>
       <img
         className="card-img-bottom"
-        src="./public/images/blogimg.jpg"
+        src={postThumbnail}
         alt="Card image cap"
       />
     </div>
@@ -95,7 +95,7 @@ function HomePage() {
             pageNum.current++;
             appending.current = false;
             forceUpdate(1);
-          }, 1000);
+          }, 500);
         });
 	}
   }
@@ -208,7 +208,7 @@ function HomePage() {
               fullName={"a"}
               postTime={post.UpdatedTime}
               postTitle={post.BlogTitle}
-              postThumbnai={post.Thumbnail}
+              postThumbnail={post.Thumbnail}
               CardContent={post.PostText}
             />
           ))}
