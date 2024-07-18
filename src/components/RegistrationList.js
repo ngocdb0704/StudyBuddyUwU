@@ -79,7 +79,6 @@ const RegistrationList = () => {
                                 <Card.Body>
                                     <Card.Title> <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                         {subject ? subject.SubjectTitle : 'N/A'}
-                                        {subPack.PackageId}
                                     </div>
                                     </Card.Title>
                                     <Card.Text>
