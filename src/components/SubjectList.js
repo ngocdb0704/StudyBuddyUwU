@@ -73,11 +73,11 @@ const SubjectList = () => {
           <Search />
           <br></br>
           {user? <>
-            <h2>Levels</h2>
+            <h2>Registered</h2>
           <RegisterFilter />
           <br></br>
           </>  :<></>}
-          <h2>Registered</h2>
+          <h2>Levels</h2>
           <StatusFilter />
           <br></br>
           <h2>Categories</h2>
@@ -91,7 +91,7 @@ const SubjectList = () => {
               const subPack = packages.filter(pack => pack.SubjectId === subject.SubjectId).sort((a, b) => a.SalePrice - b.SalePrice).at(0);
               return (
                 <Card key={subject.SubjectId} style={{ width: '18rem', display: 'inline-block', marginLeft: '1%', marginBottom: '1%' }}>
-                  <Card.Img variant="top" src={subject.SubjectThumbnail.startsWith("data:") ? subject.SubjectThumbnail : `/thumbnails/${subject.SubjectThumbnail}`} style={{ height: '10rem' }} />
+                  <Card.Img variant="top" src={`/thumbnails/${subject.SubjectThumbnail}`} style={{ height: '10rem' }} />
                   <Card.Body>
                     <Card.Title> <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                       <Link to={`/Subject/${subject.SubjectId}`}>

@@ -108,14 +108,15 @@ const RegistrationList = () => {
                                                     <Row style={{ marginBottom: '10%' }}>
                                                         <Button as={Link} to={`/registration/pay/${registration.id}`}
                                                             disabled={registration.Status == true}
-                                                            variant="success">
+                                                            variant="success"
+                                                            style={{opacity:(registration.Status == true ? '0.6' : '')}}>
                                                             Buy
                                                         </Button>
                                                     </Row>
                                                     <Row>
                                                         <Button variant='danger'
                                                             disabled={registration.Status == true}
-                                                            style={{opacity:'1.0'}}
+                                                            style={{opacity:(registration.Status == true ? '0.6' : '')}}
                                                             onClick={() => deleteSubject(registration.id)}>
                                                             Cancel
                                                         </Button>
@@ -126,6 +127,7 @@ const RegistrationList = () => {
                                                         <Button
                                                             as={Link} to={`/registration/edit/${registration.id}`}
                                                             disabled={registration.Status == true}
+                                                            style={{opacity:(registration.Status == true ? '0.6' : '')}}
                                                             variant="warning">
                                                             Edit
                                                         </Button>

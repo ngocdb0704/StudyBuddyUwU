@@ -43,8 +43,6 @@ const AppNavbar = () => {
                 Blogs
               </Nav.Link>
             )}
-          <Nav.Link as={Link} to="/subjectsList">Subjects List</Nav.Link>
-          <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
           <>
           {user?
           (
