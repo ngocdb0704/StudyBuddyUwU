@@ -14,7 +14,7 @@ const AppNavbar = () => {
     navigate('/login');
   };
 
-  const isAdmin = user && user.RoleId === 4;
+  const isAdmin = JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).RoleId === 4;
 
   return (
     <Navbar bg={isAdmin ? "dark" : "primary"} variant={isAdmin ? "dark" : "light"} expand="lg">

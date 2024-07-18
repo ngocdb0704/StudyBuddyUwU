@@ -42,7 +42,8 @@ const SubjectProvider = ({ children }) => {
   };
 
   const updateSubject = async (updatedSubject) => {
-    const response = await axios.put(`http://localhost:9999/Subject/${updatedSubject.SubjectId}`, updatedSubject);
+    const sub = subjects.find((sub) => sub.SubjectId === updatedSubject.SubjectId)
+    const response = await axios.put(`http://localhost:9999/Subject/${sub.id}`, updatedSubject);
     const updatedSubjects = subjects.map((subject) =>
       subject.SubjectId === updatedSubject.SubjectId ? response.data : subject
     );
