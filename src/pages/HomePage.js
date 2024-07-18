@@ -8,33 +8,28 @@ import React, {
 } from "react";
 import { Row, Col, Button, Container } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
+import { UserContext } from "../context/UserContext";
 import "./css/HomePage.css";
 
 function LoadingGif() {
   return (
     <center className="loading">
-      <img
-        src="./public/images/Ellipsis@1x-2.2s-200px-200px.gif"
-        alt="loading..."
-      />
+      <img src="./images/Ellipsis@1x-2.2s-200px-200px.gif" alt="loading..." />
     </center>
   );
 }
 
-function EndOfFeed() {
+function EndOfFeed(resetFeed) {
   return (
     <center className="endOfFeed">
       <img
         style={{ width: "256px" }}
-        src="./public/images/tumbleweed.png"
+        src="./images/tumbleweed.png"
         alt="loading..."
       />
       <h3>Looks like we're all out of posts...</h3>
       <h4>
-        <a href="#sliders" onclick="resetFeed()">
-          Refresh your feed
-        </a>{" "}
-        to see new stuffs!
+        <a href="#sliders">Refresh your feed</a> to see new stuffs!
       </h4>
     </center>
   );
@@ -49,11 +44,13 @@ function Post({
   postThumbnail,
   CardContent,
 }) {
+  const { users } = useContext(UserContext);
+  let usr = users.find((user) => user.UserId == userId);
   return (
     <div id={"post_" + postId} className="card">
       <div className="card-body">
-        <img className="profilePic" src={''} />
-        <h5 className="card-title">{fullName}</h5>
+        <img className="profilePic" src={"./images/anonymous-user.webp"} />
+        <h5 className="card-title">{usr.FullName}</h5>
         <i>{postTime}</i>
       </div>
       <div className="container">
@@ -70,13 +67,16 @@ function Post({
 }
 
 function HomePage() {
+  const { users } = useContext(UserContext);
   const displayedPostsList = useRef([]);
   const pageNum = useRef(0);
   const appending = useRef(false);
+  const outOfPosts = useRef(false);
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
   function getPosts(amount) {
-    if (!appending.current) {
+    console.log(outOfPosts.current);
+    if (!appending.current && !outOfPosts.current) {
       appending.current = true;
       console.log("Start appending");
       axios
@@ -87,24 +87,32 @@ function HomePage() {
           },
         })
         .then((res) => {
-          displayedPostsList.current = [
-            ...displayedPostsList.current,
-            ...res.data,
-          ];
+          if (res.data.length < 1) {
+            outOfPosts.current = true;
+            console.log("Y");
+            console.log(outOfPosts.current);
+            forceUpdate(1);
+          }
+          forceUpdate(1);
+
           setTimeout(() => {
+            displayedPostsList.current = [
+              ...displayedPostsList.current,
+              ...res.data,
+            ];
             pageNum.current++;
             appending.current = false;
             forceUpdate(1);
-          }, 500);
+          }, 700);
         });
-	}
+    }
   }
 
   const handleScroll = (e, element) => {
     console.log(appending.current);
     const bottom =
       element.getBoundingClientRect().bottom < window.innerHeight + 400;
-    if (bottom) {
+    if (bottom && !appending.current && !outOfPosts.current) {
       getPosts(5);
     }
   };
@@ -119,8 +127,9 @@ function HomePage() {
   function resetFeed() {
     pageNum.current = 0;
     displayedPostsList.current = [];
-    forceUpdate(1);
+    outOfPosts.current = false;
     getPosts(5);
+    forceUpdate(1);
     console.log(displayedPostsList);
   }
 
@@ -212,6 +221,12 @@ function HomePage() {
               CardContent={post.PostText}
             />
           ))}
+          {appending.current && !outOfPosts.current ? <LoadingGif /> : ""}
+          {outOfPosts.current ? (
+            <EndOfFeed resetFeed={() => resetFeed()} />
+          ) : (
+            ""
+          )}
         </div>
       </Container>
     </Container>
