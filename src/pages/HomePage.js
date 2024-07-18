@@ -148,6 +148,7 @@ function HomePage() {
       getPosts(5);
     }
   };
+
   useEffect(() => {
     const wrappedElement = document.getElementById("home-screen");
     document.addEventListener("scroll", (e) => handleScroll(e, wrappedElement));

@@ -1,10 +1,33 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { SubjectContext } from '../context/SubjectContext';
 import { UserContext } from '../context/UserContext';
 import './css/SubjectDetails.css';
+
+function parse(text) {
+        if (text.trim().replace(/(\r\n|\n|\r)/gm, "").match(/^##Coursera style description.*##About.*##Outcome.*##Lessons.*##Duration.*##End$/gm))
+            return courseraDesc(text);
+	else return (<p>{text}</p>)
+}
+
+function courseraDesc(text) {
+	let about = text.slice(text.indexOf("##About") + 7, text.indexOf("##Outcome"));
+	let outcome = text.slice(text.indexOf("##Outcome") + 9, text.indexOf("##Lessons"));
+	let lesson = text.slice(text.indexOf("##Lessons") + 9, text.indexOf("##Duration"));
+	let duration = text.slice(text.indexOf("##Duration") + 10, text.indexOf("##End"));
+
+	//console.log([about, outcome, lesson, duration]);
+	return (
+		<>
+		<h1 id='about'>About:</h1><p>{about}</p>
+		<h1 id='outcome'>Outcome:</h1><p>{outcome}</p>
+		<h1 id='lessons'>Lessons:</h1><p>{lesson}</p>
+		<h1 id='duration'>Duration:</h1><p>{duration}</p>;
+		</>
+	)
+}
 
 const SubjectDetail = () => {
   const { id } = useParams();
@@ -15,6 +38,7 @@ const SubjectDetail = () => {
   if (!subject) {
     return <div>Loading...</div>;
   }
+	
 
   const categoryName = categories.find(category => category.SubjectCategoryId === subject.SubjectCategoryId)?.title || 'Unknown';
   const creatorName = users.find(user => user.UserId === subject.SubjectOwnerId)?.FullName || 'Unknown';
@@ -113,7 +137,7 @@ const SubjectDetail = () => {
                 <div id="subject-brief" class="container rounded-3 p-5">
                     <div style={{height: "250px"}}></div>
 
-                    <img id='subject-thumbnail' src="public/thumbnails/${subjectDetails.getThumbnail()}" alt="alt"/>
+                    <img id='subject-thumbnail' src={'../thumbnails/' + subject.SubjectThumbnail} alt="alt"/>
 
                     <div id="info-div bg-white">
                         <h1>{subject.SubjectTitle}</h1>
@@ -121,6 +145,11 @@ const SubjectDetail = () => {
                         <p>{subject.SubjectBriefInfo}</p>
 
                         <div className="container-fluid">
+                                <button style={{cursor: "default"}} className="btn btn-secondary btn-disabled">Register 
+                                    <div className="w3tooltip"><i className="bi bi-question-circle ms-1"></i>
+                                        <span className="w3tooltiptext">This subject does not currently have any packages available, please come back later.</span>
+                                    </div>
+                                </button>
 {/*                            <c:if test="${not empty lowestPackage}">
                                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".modalRegister">Register</button>
                                 <c:if test="${lowestPackage.getListPrice() != lowestPackage.getSalePrice()}">
@@ -145,7 +174,7 @@ const SubjectDetail = () => {
                 </div>
 
                 <div id="subject-description" class="container mt-5">
-                    {subject.SubjectDescription}
+                    {parse(subject.SubjectDescription)}
                 </div>
 
             </Col>
