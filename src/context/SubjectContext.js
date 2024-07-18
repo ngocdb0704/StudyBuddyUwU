@@ -32,11 +32,22 @@ const SubjectProvider = ({ children }) => {
     fetchData();
   }, []);
 
+  const findFirstAvailableId = () => {
+    const ids = subjects.map((subject) => subject.SubjectId).sort((a, b) => a - b);
+    let availableId = 1;
+    for (let id of ids) {
+      if (id !== availableId) break;
+      availableId++;
+    }
+    return availableId;
+  };
+
   const addSubject = async (subject) => {
+    const newId = findFirstAvailableId();
     const response = await axios.post("http://localhost:9999/Subject", {
       ...subject,
-      subjectId: subjects.length + 1,
-      subjectCategoryId: Number(subject.subjectCategoryId),
+      SubjectId: newId,
+      SubjectCategoryId: Number(subject.SubjectCategoryId),
     });
     setSubjects([...subjects, response.data]);
   };

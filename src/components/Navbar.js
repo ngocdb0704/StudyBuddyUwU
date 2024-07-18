@@ -35,6 +35,11 @@ const AppNavbar = () => {
             <Nav.Link as={Link} to={isAdmin ? "/admin-subjectlist" : "/subjectsList"}>
               {isAdmin ? "Admin Subject List" : "Subjects List"}
             </Nav.Link>
+            {isAdmin && (
+              <Nav.Link as={Link} to="/admin/add-subject">
+                Add Subject
+              </Nav.Link>
+            )}
             {!isAdmin && (
               <Nav.Link as={Link} to="/blogs">
                 Blogs

@@ -1,58 +1,32 @@
-import React, { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
-import { SubjectContext } from "../../context/SubjectContext";
-import { Form, Button, Row, Col, Modal } from "react-bootstrap";
-import "../css/AdminSubjectOverview.css";
+import React, { useContext, useState } from 'react';
+import { Form, Button, Row, Col, Modal } from 'react-bootstrap';
+import { SubjectContext } from '../../context/SubjectContext';
+import { UserContext } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+import '../css/AdminSubjectOverview.css';
 
-const AdminSubjectOverview = () => {
-  const { id } = useParams();
-  const { subjects, updateSubject, categories } = useContext(SubjectContext);
+const AddSubject = () => {
+  const { categories, addSubject } = useContext(SubjectContext);
   const { users } = useContext(UserContext);
-
-  const subject = subjects.find(
-    (subject) => subject.SubjectId === parseInt(id)
-  );
-  const subjectOwner = users.find(
-    (user) => user.UserId === subject?.SubjectOwnerId
-  );
-  const creatorName = subjectOwner?.FullName || "Unknown";
-  const creatorEmail = subjectOwner?.Email || "Unknown";
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    title: subject?.SubjectTitle || "",
-    tagline: subject?.SubjectTagLine || "",
-    brief: subject?.SubjectBrief || "",
-    description: subject?.SubjectDescription || "",
-    category: subject?.SubjectCategoryId || "",
-    featured: subject?.SubjectFeatured || false,
-    status: subject?.SubjectStatus || false,
-    thumbnail: subject?.SubjectThumbnail || "",
-    owner: creatorName,
-    ownerId: subject?.SubjectOwnerId || "",
-    ownerEmail: creatorEmail,
+    title: '',
+    tagline: '',
+    brief: '',
+    description: '',
+    category: '',
+    level: '',
+    featured: false,
+    status: false, // Initialize as boolean
+    thumbnail: '',
+    owner: '',
+    ownerId: '',
+    ownerEmail: '',
   });
 
   const [showOwnerModal, setShowOwnerModal] = useState(false);
   const [selectedOwner, setSelectedOwner] = useState(null);
-
-  useEffect(() => {
-    if (subject) {
-      setFormData({
-        title: subject.SubjectTitle,
-        tagline: subject.SubjectTagLine,
-        brief: subject.SubjectBriefInfo,
-        description: subject.SubjectDescription,
-        category: subject.SubjectCategoryId,
-        featured: subject.SubjectFeatured,
-        status: subject.SubjectStatus,
-        thumbnail: subject.SubjectThumbnail,
-        owner: creatorName,
-        ownerId: subject.SubjectOwnerId,
-        ownerEmail: creatorEmail,
-      });
-    }
-  }, [subject, creatorName, creatorEmail]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,34 +44,20 @@ const AdminSubjectOverview = () => {
     }
   };
 
-  const handleSave = () => {
-    updateSubject({
-      ...subject,
+  const handleAdd = () => {
+    addSubject({
       SubjectTitle: formData.title,
       SubjectTagLine: formData.tagline,
       SubjectBriefInfo: formData.brief,
       SubjectDescription: formData.description,
       SubjectCategoryId: formData.category,
+      SubjectLevelId: formData.level,
       SubjectFeatured: formData.featured,
-      SubjectStatus: formData.status,
+      SubjectStatus: formData.status === 'true' ? true : false, // Convert string to boolean
       SubjectThumbnail: formData.thumbnail,
       SubjectOwnerId: formData.ownerId,
     });
-  };
-
-  const handleReset = () => {
-    setFormData({
-      title: subject.SubjectTitle,
-      tagline: subject.SubjectTagLine,
-      brief: subject.SubjectBriefInfo,
-      description: subject.SubjectDescription,
-      category: subject.SubjectCategoryId,
-      featured: subject.SubjectFeatured,
-      status: subject.SubjectStatus,
-      thumbnail: subject.SubjectThumbnail,
-      owner: creatorName,
-      ownerId: subject.SubjectOwnerId,
-    });
+    navigate('/admin-subjectlist');
   };
 
   const handleSelectOwner = (owner) => {
@@ -116,14 +76,9 @@ const AdminSubjectOverview = () => {
     setShowOwnerModal(false);
   };
 
-  if (!subject) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="container">
-      <h1>Subject Overview</h1>
-
+      <h1>Add New Subject</h1>
       <Form>
         <Row>
           <Col md={8}>
@@ -145,30 +100,34 @@ const AdminSubjectOverview = () => {
                 onChange={handleChange}
               >
                 {categories.map((category) => (
-                  <option
-                    key={category.SubjectCategoryId}
-                    value={category.SubjectCategoryId}
-                  >
+                  <option key={category.SubjectCategoryId} value={category.SubjectCategoryId}>
                     {category.SubjectCategoryName}
                   </option>
                 ))}
               </Form.Control>
             </Form.Group>
+            <Form.Group controlId="subjectLevel">
+              <Form.Label>Level</Form.Label>
+              <Form.Control
+                as="select"
+                name="level"
+                value={formData.level}
+                onChange={handleChange}
+              >
+                <option value="1">Level 1</option>
+                <option value="2">Level 2</option>
+                <option value="3">Level 3</option>
+              </Form.Control>
+            </Form.Group>
             <Row>
               <Col md={6}>
-                <Form.Group
-                  style={{ paddingTop: "30px" }}
-                  controlId="subjectFeatured"
-                  className="mb-3"
-                >
+                <Form.Group style={{ paddingTop: '30px' }} controlId="subjectFeatured" className="mb-3">
                   <Form.Check
                     type="checkbox"
                     label="Featured"
                     name="featured"
                     checked={formData.featured}
-                    onChange={(e) =>
-                      setFormData({ ...formData, featured: e.target.checked })
-                    }
+                    onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
                   />
                 </Form.Group>
               </Col>
@@ -190,17 +149,11 @@ const AdminSubjectOverview = () => {
             <Form.Group controlId="subjectOwner">
               <Form.Label>Owner</Form.Label>
               <div className="d-flex align-items-center">
-                <i
-                  className="bi bi-person-circle "
-                  style={{ width: "30px", height: "70px" }}
-                ></i>
+                <i className="bi bi-person-circle" style={{ width: '30px', height: '70px' }}></i>
                 <div>
                   <p>{formData.owner}</p>
                   <p>{formData.ownerEmail}</p>
-                  <Button
-                    variant="primary"
-                    onClick={() => setShowOwnerModal(true)}
-                  >
+                  <Button variant="primary" onClick={() => setShowOwnerModal(true)}>
                     Change owner
                   </Button>
                 </div>
@@ -212,14 +165,10 @@ const AdminSubjectOverview = () => {
               <Form.Label>Thumbnail</Form.Label>
               <div className="d-flex flex-column align-items-center">
                 <img
-                  src={
-                    formData.thumbnail.startsWith("data:")
-                      ? formData.thumbnail
-                      : `/thumbnails/${formData.thumbnail}`
-                  }
+                  src={formData.thumbnail ? formData.thumbnail : '/thumbnails/default-thumbnail.jpg'}
                   alt="Thumbnail"
                   className="mb-2"
-                  style={{ width: "100%", height: "280px" }}
+                  style={{ width: '100%', height: '280px' }}
                 />
                 <Form.Control
                   id="thumbnailUpload"
@@ -231,7 +180,6 @@ const AdminSubjectOverview = () => {
             </Form.Group>
           </Col>
         </Row>
-
         <Form.Group controlId="subjectTagline">
           <Form.Label>Tagline</Form.Label>
           <Form.Control
@@ -261,12 +209,8 @@ const AdminSubjectOverview = () => {
             onChange={handleChange}
           />
         </Form.Group>
-
-        <Button variant="primary" onClick={handleSave}>
-          Save
-        </Button>
-        <Button variant="secondary" className="ml-2" onClick={handleReset}>
-          Reset
+        <Button variant="primary" onClick={handleAdd}>
+          Add
         </Button>
       </Form>
 
@@ -300,4 +244,4 @@ const AdminSubjectOverview = () => {
   );
 };
 
-export default AdminSubjectOverview;
+export default AddSubject;

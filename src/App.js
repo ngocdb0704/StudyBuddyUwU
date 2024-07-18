@@ -26,6 +26,7 @@ import ContainerSubjectsList from "./components/ContainerSubjectsList";
 import BlogList from "./components/BlogList";
 import AdminContainerSubjectsList from "./components/admin/AdminContainerSubjectList";
 import AdminSubjectOverview from "./components/admin/AdminSubjectOverview";
+import AddSubject from "./components/admin/AddSubject";
 
 const Home = () => <Container className="mt-4"></Container>;
 
@@ -69,6 +70,7 @@ const App = () => {
                 <Route path="/blogs" element={<BlogList/>} />
                 <Route path="/admin-subjectlist" element={<ProtectedRoute><AdminContainerSubjectsList/></ProtectedRoute>} />
                 <Route path="/admin/subjects/:id" element={<ProtectedRoute><AdminSubjectOverview/></ProtectedRoute>} />
+                <Route path="/admin/add-subject" element={<ProtectedRoute><AddSubject/></ProtectedRoute>} />
               </Routes>
             </Container>
           </Router>

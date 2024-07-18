@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import ReactPaginate from 'react-paginate';
 import { BlogContext } from '../context/BlogContext';
 import './css/BlogList.css';
 
@@ -11,7 +12,7 @@ const BlogList = () => {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [filteredBlogs, setFilteredBlogs] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [blogsPerPage] = useState(2);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const BlogList = () => {
       return matchesSearchTerm && matchesCategory && matchesDateRange;
     });
     setFilteredBlogs(filtered);
-    setCurrentPage(1); // Reset to first page after search
+    setCurrentPage(0);
   };
 
   const handleReset = () => {
@@ -37,60 +38,15 @@ const BlogList = () => {
     setStartDate('');
     setEndDate('');
     setFilteredBlogs(blogs);
-    setCurrentPage(1);
+    setCurrentPage(0);
   };
 
-  const indexOfLastBlog = currentPage * blogsPerPage;
+  const indexOfLastBlog = (currentPage + 1) * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
   const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const renderPageNumbers = () => {
-    const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
-    const pageNumbers = [];
-    const maxPageNumbersToShow = 5; // Adjust this number based on your requirements
-
-    if (totalPages <= maxPageNumbersToShow) {
-      for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(i);
-      }
-    } else {
-      const leftSide = Math.max(1, currentPage - 2);
-      const rightSide = Math.min(totalPages, currentPage + 2);
-
-      if (leftSide > 1) {
-        pageNumbers.push(1);
-        if (leftSide > 2) {
-          pageNumbers.push('...');
-        }
-      }
-
-      for (let i = leftSide; i <= rightSide; i++) {
-        pageNumbers.push(i);
-      }
-
-      if (rightSide < totalPages) {
-        if (rightSide < totalPages - 1) {
-          pageNumbers.push('...');
-        }
-        pageNumbers.push(totalPages);
-      }
-    }
-
-    return pageNumbers.map((number, index) =>
-      number === '...' ? (
-        <span key={index} className="dots">...</span>
-      ) : (
-        <button
-          key={number}
-          onClick={() => paginate(number)}
-          className={currentPage === number ? 'active' : ''}
-        >
-          {number}
-        </button>
-      )
-    );
+  const handlePageClick = (data) => {
+    setCurrentPage(data.selected);
   };
 
   return (
@@ -161,15 +117,23 @@ const BlogList = () => {
             </div>
           ) : (
             <div className="no-posts-found">
-              <img src="path_to_image/no_posts_found.png" alt="No posts found" />
+              <img src="/images/no_blog_here.jpg" alt="No posts found" style={{width: '300px', height: '300px'}}/>
               <h2>No posts found</h2>
               <button onClick={handleReset}>Reset</button>
             </div>
           )}
           <div className="pagination">
-            <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
-            {renderPageNumbers()}
-            <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(filteredBlogs.length / blogsPerPage)}>Next</button>
+            <ReactPaginate
+              previousLabel={<span className="previous">Previous</span>}
+              nextLabel={<span className="next">Next</span>}
+              breakLabel={'...'}
+              pageCount={Math.ceil(filteredBlogs.length / blogsPerPage)}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageClick}
+              containerClassName={'pagination'}
+              activeClassName={'active'}
+            />
           </div>
         </div>
       </div>

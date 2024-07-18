@@ -109,3 +109,46 @@
   color: #2c3e50;
   font-size: 15px; 
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  display: inline;
+}
+
+.pagination li a {
+  font-size: 18px; 
+  padding: 8px 12px;
+  color: #007bff;
+  text-decoration: none;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.pagination li a:hover {
+  background-color: #f8f9fa;
+}
+
+.pagination li.active a {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination .previous, .pagination .next {
+  font-size: 18px; 
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.pagination .previous:hover, .pagination .next:hover {
+  background-color: #f8f9fa;
+}

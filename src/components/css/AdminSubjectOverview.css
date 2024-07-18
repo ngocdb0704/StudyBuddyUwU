@@ -1,0 +1,23 @@
+.owner-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .owner-list li {
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .owner-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .owner-list li.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
