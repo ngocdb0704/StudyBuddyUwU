@@ -18,7 +18,7 @@ const AddSubject = () => {
     category: '',
     level: '',
     featured: false,
-    status: false, // Initialize as boolean
+    status: false, 
     thumbnail: '',
     owner: '',
     ownerId: '',
@@ -50,10 +50,10 @@ const AddSubject = () => {
       SubjectTagLine: formData.tagline,
       SubjectBriefInfo: formData.brief,
       SubjectDescription: formData.description,
-      SubjectCategoryId: formData.category,
-      SubjectLevelId: formData.level,
-      SubjectFeatured: formData.featured,
-      SubjectStatus: formData.status === 'true' ? true : false, // Convert string to boolean
+      SubjectCategoryId: parseInt(formData.category),
+      SubjectLevelId: parseInt(formData.level),
+      IsFeaturedSubject: formData.featured,
+      SubjectStatus: formData.status === 'true' ? true : false, 
       SubjectThumbnail: formData.thumbnail,
       SubjectOwnerId: formData.ownerId,
     });
@@ -99,6 +99,7 @@ const AddSubject = () => {
                 value={formData.category}
                 onChange={handleChange}
               >
+                <option value="">Select Category</option>
                 {categories.map((category) => (
                   <option key={category.SubjectCategoryId} value={category.SubjectCategoryId}>
                     {category.SubjectCategoryName}
@@ -114,6 +115,7 @@ const AddSubject = () => {
                 value={formData.level}
                 onChange={handleChange}
               >
+                <option value="">Select Level</option>
                 <option value="1">Level 1</option>
                 <option value="2">Level 2</option>
                 <option value="3">Level 3</option>
