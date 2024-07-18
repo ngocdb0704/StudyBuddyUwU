@@ -13,7 +13,7 @@ const BlogList = () => {
   const [endDate, setEndDate] = useState('');
   const [filteredBlogs, setFilteredBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [blogsPerPage] = useState(2);
+  const [blogsPerPage] = useState(3);
 
   useEffect(() => {
     setFilteredBlogs(blogs);

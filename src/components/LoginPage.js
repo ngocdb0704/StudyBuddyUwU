@@ -15,7 +15,7 @@ const LoginPage = () => {
     e.preventDefault();
     const user = login(email, password);
     if (user || JSON.parse(localStorage.getItem('user'))) {
-      if (user.RoleId === 4 || JSON.parse(localStorage.getItem('user')).RoleId === 4) {
+      if (user.RoleId === 2 || JSON.parse(localStorage.getItem('user')).RoleId === 2) {
         navigate('/admin-subjectlist');
       } else {
         navigate('/');

@@ -22,13 +22,16 @@ import BlogProvider from "./context/BlogContext";
 import SubjectDetail from "./components/SubjectDetail";
 import SubjectLevelFilter from "./components/SubjectLevelFilter";
 import UserProfilePopup from "./components/UserProfile";
-import ContainerSubjectsList from "./components/ContainerSubjectsList";
+import HomePage from "./pages/HomePage";
+import RegistrationList from "./components/RegistrationList";
+import EditRegistForm from "./components/RegistrationEdit";
+import Quiz from "./quiz/Quiz";
+import QuizList from "./quiz/QuizList";
+import PayRegistForm from "./components/RegistrationPay";
 import BlogList from "./components/BlogList";
 import AdminContainerSubjectsList from "./components/admin/AdminContainerSubjectList";
 import AdminSubjectOverview from "./components/admin/AdminSubjectOverview";
 import AddSubject from "./components/admin/AddSubject";
-
-const Home = () => <Container className="mt-4"></Container>;
 
 const Navigation = () => <AppNavbar></AppNavbar>;
 
@@ -42,8 +45,9 @@ const AppLayout = () => (
 const ProtectedRoute = ({ children }) => {
   const user = JSON.parse(localStorage.getItem('user')); 
 
-  if (!user) {
-      return <Navigate to="/login" />;
+  if (!user || !(user.RoleId === 2)) {
+    localStorage.removeItem('user');
+    return <Navigate to="/login" />;
   }
 
   return children;
@@ -52,27 +56,26 @@ const ProtectedRoute = ({ children }) => {
 const App = () => {
   return (
     <UserProvider>
-      <SubjectProvider>
+		  <SubjectProvider>
         <BlogProvider>
           <Router>
-            <AppNavbar />
-            <Container className="mt-4">
+            <AppLayout />
               <Routes>
-                <Route path="/" element={<Home />} />
-                {/* <Route path="/add" element={<AddSubjectForm />} />
-              <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
+                <Route path="/" element={<HomePage />} />
+                {/* <Route path="/add" element={<AddSubjectForm />} /> */}
                 <Route path="/Subject/:id" element={<SubjectDetail />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route
-                  path="/subjectsList"
-                  element={<ContainerSubjectsList />}
-                />
+                <Route path="/subjectsList" element={<SubjectList />} />
+                <Route path="/registration" element={<RegistrationList />} />
                 <Route path="/blogs" element={<BlogList/>} />
                 <Route path="/admin-subjectlist" element={<ProtectedRoute><AdminContainerSubjectsList/></ProtectedRoute>} />
                 <Route path="/admin/subjects/:id" element={<ProtectedRoute><AdminSubjectOverview/></ProtectedRoute>} />
                 <Route path="/admin/add-subject" element={<ProtectedRoute><AddSubject/></ProtectedRoute>} />
+                <Route path="/registration/edit/:id" element={<EditRegistForm />} />
+                <Route path="/quiz-list" element={<QuizList />} />
+                <Route path="/quiz" element={<Quiz />} />
+                <Route path="/registration/pay/:id" element={<PayRegistForm />} />
               </Routes>
-            </Container>
           </Router>
         </BlogProvider>
       </SubjectProvider>
