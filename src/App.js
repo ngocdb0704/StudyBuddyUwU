@@ -60,7 +60,7 @@ const App = () => {
             <AppNavbar />
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                {/* <Route path="/add" element={<AddSubjectForm />} />
+                {/* <Route path="/add" element={<AddSubjectForm />} /> */}
                 <Route path="/Subject/:id" element={<SubjectDetail />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/subjectsList" element={<SubjectList />} />
