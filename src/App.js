@@ -50,7 +50,7 @@ const ProtectedRoute = ({ children }) => {
 const App = () => {
   return (
     <UserProvider>
-      <SubjectProvider>
+		  <SubjectProvider>
         <BlogProvider>
           <Router>
             <AppNavbar />

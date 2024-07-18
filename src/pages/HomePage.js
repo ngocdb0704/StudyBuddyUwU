@@ -38,7 +38,6 @@ function EndOfFeed(resetFeed) {
 function Post({
   postId,
   userId,
-  fullName,
   postTime,
   postTitle,
   postThumbnail,
@@ -66,19 +65,53 @@ function Post({
   );
 }
 
+function FeaturedSubject({
+  SubjectId,
+  SubjectTitle,
+  SubjectTagLine,
+  SubjectThumbnail,
+}) {
+  return (
+    <div className="card">
+      <img
+        className="card-img-top"
+        src={"./thumbnails/" + SubjectThumbnail}
+        alt="Card image cap"
+      />
+      <div className="card-body">
+        <h5 className="card-title">{SubjectTitle}</h5>
+        <p
+          className="card-text"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          {SubjectTagLine}
+        </p>
+        <div className="featured-subject-btn-filler"></div>
+        <a
+          href={"./Subject/" + SubjectId}
+          className="btn btn-primary position-absolute"
+          style={{ bottom: "16px" }}
+        >
+          Explore
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function HomePage() {
-  const { users } = useContext(UserContext);
   const displayedPostsList = useRef([]);
   const pageNum = useRef(0);
   const appending = useRef(false);
   const outOfPosts = useRef(false);
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
+  const [featuredSubjectsList, setFeaturedSubjectsList] = useState([]);
 
   function getPosts(amount) {
-    console.log(outOfPosts.current);
+    //console.log(outOfPosts.current);
     if (!appending.current && !outOfPosts.current) {
       appending.current = true;
-      console.log("Start appending");
+      //console.log("Start appending");
       axios
         .get("http://localhost:9999/Blog", {
           params: {
@@ -89,9 +122,8 @@ function HomePage() {
         .then((res) => {
           if (res.data.length < 1) {
             outOfPosts.current = true;
-            console.log("Y");
-            console.log(outOfPosts.current);
-            forceUpdate(1);
+            //console.log("Y");
+            //console.log(outOfPosts.current);
           }
           forceUpdate(1);
 
@@ -109,7 +141,7 @@ function HomePage() {
   }
 
   const handleScroll = (e, element) => {
-    console.log(appending.current);
+    //console.log(appending.current);
     const bottom =
       element.getBoundingClientRect().bottom < window.innerHeight + 400;
     if (bottom && !appending.current && !outOfPosts.current) {
@@ -120,8 +152,23 @@ function HomePage() {
     const wrappedElement = document.getElementById("home-screen");
     document.addEventListener("scroll", (e) => handleScroll(e, wrappedElement));
 
-    console.log(getPosts(pageNum.current, 5));
-    console.log(displayedPostsList);
+    //console.log(getPosts(pageNum.current, 5));
+    //console.log(displayedPostsList);
+    //console.log(outOfPosts.current);
+    getPosts(5);
+
+    axios
+      .get(
+        "http://localhost:9999/Subject?IsFeaturedSubject=1&SubjectStatus=1",
+        {
+          params: {
+            _limit: 10,
+          },
+        },
+      )
+      .then((res) => {
+        setFeaturedSubjectsList(res.data);
+      });
   }, []);
 
   function resetFeed() {
@@ -130,7 +177,7 @@ function HomePage() {
     outOfPosts.current = false;
     getPosts(5);
     forceUpdate(1);
-    console.log(displayedPostsList);
+    //console.log(displayedPostsList);
   }
 
   return (
@@ -168,6 +215,21 @@ function HomePage() {
       </Carousel>
 
       <Container>
+        <div className="featured-subject">
+          <h2>Featured subjects</h2>
+
+          <div className="d-flex flex-row flex-nowrap overflow-auto">
+            {featuredSubjectsList.map((sub) => (
+              <FeaturedSubject
+                SubjectId={sub.SubjectId}
+                SubjectThumbnail={sub.SubjectThumbnail}
+                SubjectTitle={sub.SubjectTitle}
+                SubjectTagLine={sub.SubjectTagLine}
+              />
+            ))}
+          </div>
+        </div>
+
         <div className="p-2 mt-5 rounded bg-light d-flex sticky-top">
           <h3 className="mx-2 my-0" style={{ lineHeight: "46px" }}>
             Sort by:{" "}
@@ -214,7 +276,6 @@ function HomePage() {
             <Post
               postId={post.BlogId}
               userId={post.UserId}
-              fullName={"a"}
               postTime={post.UpdatedTime}
               postTitle={post.BlogTitle}
               postThumbnail={post.Thumbnail}

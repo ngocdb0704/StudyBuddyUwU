@@ -66,7 +66,8 @@ const UserProfilePopup = ({ text }) => {
     id: 0,
   });
 
-  const { user } = useContext(UserContext);
+  //const { user } = useContext(UserContext);
+  const user = JSON.parse(localStorage.getItem("user"));
   const [refetchFlag, setRefetchFlag] = useState(0);
   useEffect(() => {
     if (user) {
@@ -82,7 +83,7 @@ const UserProfilePopup = ({ text }) => {
         id: user.id,
       });
     }
-  }, [user, refetchFlag]);
+  }, [refetchFlag]);
 
   const [genderMap, setGenderMap] = useState([]);
   const [displayPic, setDisplayPic] = useState({
@@ -194,7 +195,7 @@ const UserProfilePopup = ({ text }) => {
         console.log(error);
       });
 
-	  alert(hasChangedPic.current)
+    alert(hasChangedPic.current);
     if (hasChangedPic.current) {
       if (displayPic.imgId < 1) {
         axios
@@ -396,3 +397,4 @@ const UserProfilePopup = ({ text }) => {
 };
 
 export default UserProfilePopup;
+
