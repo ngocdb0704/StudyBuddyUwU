@@ -1,0 +1,150 @@
+#subject-brief {
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(0,0,0,0) 0, rgba(0,0,0,0) 150px, #f1f2f7 350px, #f1f2f7);
+    box-shadow: 3px 3px 3px 0px;
+}
+
+#subject-thumbnail {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#subject-description {
+    h1 {
+        padding-top: 70px;
+    }
+
+    p {
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+}
+
+.coursera-nav {
+    display: inline-block;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-bottom-color: #798196;
+
+    a {
+        color: black;
+    }
+
+    & span {
+        display: inline-block;
+        min-width: 150px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    & .c-active {
+        background-color: #dadbe5;
+    }
+}
+
+#subject-category ul {
+  list-style-type: square;
+}
+
+#subject-tags ul {
+  list-style-type: square;
+}
+
+.price-tag  {
+    /*why this don't worl'*/
+}
+
+.featured-subject {
+    text-decoration: none;
+}
+
+.featured-subject p {
+    color: #007bff;
+    text-decoration-line: underline;
+    text-decoration-color: #007bff;
+}
+
+.featured-subject small {
+    color: black;
+}
+/*
+.input-box{
+    position: relative;
+}
+
+.input-box i {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translate(0, -50%);
+    color:black;
+}
+*/
+
+#subject-search * {
+    border-color: black;
+}
+
+#subject-search span {
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+#subject-search span:hover {
+    background-color: lightskyblue;
+}
+
+
+/* w3school's tooltip css */
+/* Tooltip container */
+.w3tooltip {
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black;  If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.w3tooltip .w3tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 5px;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -150px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.w3tooltip .w3tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.w3tooltip:hover .w3tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

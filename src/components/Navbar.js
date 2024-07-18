@@ -58,7 +58,7 @@ const AppNavbar = () => {
           <Nav>
             {JSON.parse(localStorage.getItem('user')) || user ? (
               <>
-                <UserProfilePopup text={"Hello, " + JSON.parse(localStorage.getItem('user')).FullName} />
+				<UserProfilePopup text={"Hello, " + JSON.parse(localStorage.getItem('user')).FullName} /> 
                 <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
               </>
             ) : (

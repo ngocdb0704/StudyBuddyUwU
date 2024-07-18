@@ -20,7 +20,9 @@ import LoginPage from "./components/LoginPage";
 import UserProvider from "./context/UserContext";
 import BlogProvider from "./context/BlogContext";
 import SubjectDetail from "./components/SubjectDetail";
-
+import SubjectLevelFilter from "./components/SubjectLevelFilter";
+import UserProfilePopup from "./components/UserProfile";
+import HomePage from "./pages/HomePage";
 import RegistrationList from "./components/RegistrationList";
 import EditRegistForm from "./components/RegistrationEdit";
 import Quiz from "./quiz/Quiz";
@@ -29,8 +31,6 @@ import PayRegistForm from "./components/RegistrationPay";
 import BlogList from "./components/BlogList";
 import AdminContainerSubjectsList from "./components/admin/AdminContainerSubjectList";
 import AdminSubjectOverview from "./components/admin/AdminSubjectOverview";
-
-const Home = () => <Container className="mt-4"></Container>;
 
 const Navigation = () => <AppNavbar></AppNavbar>;
 
@@ -54,20 +54,13 @@ const ProtectedRoute = ({ children }) => {
 const App = () => {
   return (
     <UserProvider>
-      <SubjectProvider>
-      <BlogProvider>
-        <Router>
-          <AppNavbar />
-          <Container className="mt-4">
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Home/>
-                }
-              />
-              {/* <Route path="/add" element={<AddSubjectForm />} />
-              <Route path="/edit/:id" element={<EditSubjectForm />} /> */}
+		  <SubjectProvider>
+        <BlogProvider>
+          <Router>
+            <AppNavbar />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                {/* <Route path="/add" element={<AddSubjectForm />} />
                 <Route path="/Subject/:id" element={<SubjectDetail />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/subjectsList" element={<SubjectList />} />
@@ -80,7 +73,6 @@ const App = () => {
               <Route path="/quiz" element={<Quiz />} />
               <Route path="/registration/pay/:id" element={<PayRegistForm />} />
               </Routes>
-            </Container>
           </Router>
         </BlogProvider>
       </SubjectProvider>
