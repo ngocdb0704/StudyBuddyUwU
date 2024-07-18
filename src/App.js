@@ -17,14 +17,6 @@ import UserProfilePopup from "./components/UserProfile";
 import ContainerSubjectsList from "./components/ContainerSubjectsList";
 import HomePage from "./pages/HomePage";
 
-  const handleScroll = (e) => {
-    const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-	  console.log(bottom)
-    if (bottom) { alert("Bottom") }
-  }
-
-
-
 const Home = () => (
   <Container className="mt-4">
   </Container>
@@ -32,7 +24,6 @@ const Home = () => (
 
 const App = () => {
   return (
-	<div onScroll={() => console.log("evt")}>
     <UserProvider>
       <SubjectProvider>
         <Router>
@@ -48,7 +39,6 @@ const App = () => {
         </Router>
       </SubjectProvider>
     </UserProvider>
-	</div>
   );
 };
 
